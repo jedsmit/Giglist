@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const setlistsController = require("../../controllers/setlistsController")
+// const router = require("express").Router();
+// const setlistsController = require("../../controllers/setlistsController")
 
-router.route("/")
-    .get(setlistsController.findAll)
-    .post(setlistsController.create);
+// router.route("/")
+//     .get(setlistsController.findAll({}))
+//     .post(setlistsController.create);
 
-module.exports = router;
+// module.exports = router;
