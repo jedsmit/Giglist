@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import CreateSetlist from './pages/CreateSetlist';
 import Setlist from './pages/Setlist';
-
+import Footer from "./components/Footer"
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
           </Route>
 
         </Switch>
-
+        <Footer></Footer>
       </Router>
     </>
   );
