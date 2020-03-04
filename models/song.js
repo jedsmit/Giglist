@@ -8,8 +8,6 @@ const songSchema = new Schema({
     bpm: { type: Number }
 });
 
-
-
 const Song = mongoose.model("Song", songSchema);
 
 module.exports = Song;
