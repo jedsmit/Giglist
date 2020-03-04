@@ -2,11 +2,12 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import "./style.css"
+import { Link } from "react-router-dom";
 function UserLists() {
   return (
     <> <Container>
       <Card>
-        <Card.Header><h4>Your Setlists</h4><span><button type="button" className="btn btn-success float-right" href="/create-setlist">Create New</button></span></Card.Header>
+        <Card.Header><div className="row"><div className="col-sm-9"><h4>Your Setlists</h4></div><div className="col-sm-3"><Link to="/create-setlist"><button type="button" className="btn btn-success float-right" >Create New</button></Link></div></div></Card.Header>
         <Card.Body>
 
           <Card.Text>

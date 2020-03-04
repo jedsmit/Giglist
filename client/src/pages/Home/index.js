@@ -4,7 +4,7 @@ import UserLists from "../../components/UserLists";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Calendar from "../../components/Calendar";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function Home() {
   return (
