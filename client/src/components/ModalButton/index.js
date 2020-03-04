@@ -1,22 +1,39 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Songs from "../Song";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.css";
 
 
 
-function ModalButton() {
-  const [modalShow, setModalShow] = React.useState(false);
+const ModalButton = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+
+  const showModal = (e) => {
+    e.preventDefault();
+    setIsOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsOpen(false);
+  };
 
   return (
-    <div>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
-      </Button>
+    <><h6>Click to add songs before saving<button className=" btn btn-success float-right" onClick={showModal}>Add Songs</button></h6>
 
-      <ModalButton>
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      </ModalButton>
-    </div>
+      <Modal show={isOpen} onHide={hideModal}>
+        <Modal.Header>
+          <Modal.Title>Add Songs</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><Songs></Songs></Modal.Body>
+        <Modal.Footer>
+          <button className=" btn btn-success" onClick={hideModal}>Cancel</button>
+          <button className="save btn btn-success">Save</button>
+        </Modal.Footer>
+      </Modal>
+    </>
+
   );
 }
 
