@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 
-function Song() {
-  return (
-    <h1>Here will be some shit!</h1>
-  )
+class Song extends Component {
+
+  render() {
+    return (
+      <li>{this.props.title} by: {this.props.artist} genre: {this.props.genre} bpm: {this.props.bpm} </li>
+    )
+  }
 }
-
 
 export default Song;
