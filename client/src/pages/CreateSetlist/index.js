@@ -42,27 +42,14 @@ class CreateSetlist extends Component {
                 </Form.Group>
 
                 <Form.Group>
-                  <ModalButton></ModalButton>
+                  <ModalButton>
+
+                  </ModalButton>
                 </Form.Group>
 
                 <Form.Group>
                   <Form.Label>Songs</Form.Label>
                   <Card>
-
-                    <ul>
-                      {this.getSongs()}
-                      {
-                        this.state.songs.map((song) => {
-                          return <Song
-                            key={song._id}
-                            title={song.title}
-                            artist={song.artist}
-                            genre={song.genre}
-                            bpm={song.bpm}
-                          />
-                        })
-                      }
-                    </ul>
                   </Card>
                 </Form.Group>
 
