@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import CreateSetlist from './pages/CreateSetlist';
 import Setlist from './pages/Setlist';
+import NoMatch from "./pages/404";
 import Footer from "./components/Footer"
 
 
@@ -18,14 +19,17 @@ function App() {
 
         <Switch>
 
-          <Route path="/setlist">
+          <Route exact path={["/setlist"]}>
             <Setlist />
           </Route>
-          <Route path="/create-setlist">
+          <Route exact path={["/create-setlist"]}>
             <CreateSetlist />
           </Route>
-          <Route path="/">
+          <Route exact path={["/"]}>
             <Home />
+          </Route>
+          <Route>
+            <NoMatch />
           </Route>
 
         </Switch>
