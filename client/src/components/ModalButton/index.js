@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import Table from "react-bootstrap/Table"
 import Song from "../Song";
 import API from "../../utils/API"
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -40,20 +41,30 @@ class ModalButton extends Component {
             <Modal.Title>Add Songs</Modal.Title>
           </Modal.Header>
           <Modal.Body className="justify-content-center">
-            <ul>
-              {this.getSongs()}
-              {
-                this.state.songs.map((song) => {
-                  return <Song
-                    key={song._id}
-                    title={song.title}
-                    artist={song.artist}
-                    genre={song.genre}
-                    bpm={song.bpm}
-                  />
-                })
-              }
-            </ul>
+            <Table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Artist</th>
+                  <th>Genre</th>
+                  <th>BPM</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.getSongs()}
+                {
+                  this.state.songs.map((song) => {
+                    return <Song
+                      key={song._id}
+                      title={song.title}
+                      artist={song.artist}
+                      genre={song.genre}
+                      bpm={song.bpm}
+                    />
+                  })
+                }
+              </tbody>
+            </Table>
             {/* <Song
               key={this.props.key}
               title={this.props.title}

@@ -1,10 +1,18 @@
 import React, { Component } from "react";
+import Button from "react-bootstrap/Button";
 
 class Song extends Component {
 
   render() {
     return (
-      <li>{this.props.title} by: {this.props.artist} genre: {this.props.genre} bpm: {this.props.bpm} </li>
+      <tr>
+        <td>{this.props.title}</td>
+        <td>{this.props.artist}</td>
+        <td>{this.props.genre}</td>
+        <td>{this.props.bpm}</td>
+        <td><Button>+</Button></td>
+
+      </tr>
     )
   }
 }

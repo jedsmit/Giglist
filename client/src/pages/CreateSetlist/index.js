@@ -21,6 +21,11 @@ class CreateSetlist extends Component {
       .then(response => this.setState({ songs: response.data }))
   };
 
+  saveSetlist = () => {
+    let name = ("#form-setlist-name").val().trim();
+    console.log(name);
+  }
+
 
   render() {
     return (
@@ -30,6 +35,7 @@ class CreateSetlist extends Component {
           <Col xs={3}></Col>
           <Col xs={6}>
             <Card>
+
               <Form className="form">
                 <Form.Group controlId="form-setlist-name">
                   <Form.Label>Setlist Name</Form.Label>
@@ -50,11 +56,12 @@ class CreateSetlist extends Component {
                 <Form.Group>
                   <Form.Label>Songs</Form.Label>
                   <Card>
+
                   </Card>
                 </Form.Group>
 
                 <Form.Group>
-                  <Link to="/"><Button variant="success float-right" type="submit">
+                  <Link to="/"><Button onClick={this.saveSetlist} variant="success float-right" type="submit">
                     Save List
   </Button></Link></Form.Group>
               </Form>
