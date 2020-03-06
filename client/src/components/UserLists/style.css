@@ -1,0 +1,22 @@
+h3{
+  color: black;
+}
+
+h5{
+  color: black;
+  padding: 4px;
+}
+
+.list, .card{
+  color: black;
+}
+
+.card{
+  box-shadow:0px 6px 10px 4px #201e1e;
+  margin: 5px;
+}
+
+button{
+  box-shadow:0px 4px 4px 2px #201e1e;
+}
+
