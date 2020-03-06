@@ -8,7 +8,7 @@ import "./style.css";
 function NoMatch() {
   return (
     <>
-      <Container>
+      <Container className="background">
         <Row>
           <Col>
             <Jumbotron className="no-match">
