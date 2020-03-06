@@ -6,5 +6,8 @@ background-size: cover;
 color: white;
 height: 380px;
 box-shadow: 0px 8px 6px 2px #201e1e;
+}
 
+h1{
+  text-shadow: 4px 4px 4px #aaa;
 }
