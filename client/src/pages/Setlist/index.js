@@ -30,14 +30,15 @@ function Setlist() {
                     <tr>
                       <td>1</td>
                       <td>Mark</td>
-                      <td>Otto</td>
-                      <td><Badge variant="light"><h6>120</h6></Badge></td>
+                      <td><Badge className="key-badge" pill variant="info"><h6>B&#9837;</h6></Badge></td>
+                      <td><Badge className="bpm-flash" pill variant="info"><h6>120</h6></Badge></td>
+
                     </tr>
                     <tr>
                       <td>2</td>
                       <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
+                      <td><Badge className="key-badge" pill variant="info"><h6>F&#9839;</h6></Badge></td>
+                      <td><Badge className="bpm-flash2" pill variant="info"><h6>90</h6></Badge></td>
                     </tr>
                     <tr>
                       <td>3</td>
