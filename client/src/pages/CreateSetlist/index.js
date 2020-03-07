@@ -13,21 +13,51 @@ import API from "../../utils/API"
 class CreateSetlist extends Component {
 
   state = {
-    songs: [{}]
+    songs: [{}],
+    name: "",
+    gigtype: ""
   };
 
+  //grab all songs from database
   getSongs = () => {
     API.getSongs()
       .then(response => this.setState({ songs: response.data }))
   };
+  // save setlist to database when form is submitted
+  handleSubmit = (e) => {
+    this.saveSetlist(e.target);
 
-  saveSetlist = () => {
-    let name = ("#form-setlist-name").val().trim();
-    console.log(name);
+  }
+  //console.log current state
+  printState = () => {
+    console.log(this.state)
   }
 
+  handleInputChange = (e) => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    }, this.printState())
+  }
+
+  // saveSetlist = (data) => {
+  //   let name = data.name
+  //   let gigtype = data.gigtype
+  //   let songs = data.songs
+
+  //   API.addSetlist({
+  //     name: name,
+  //     gigttype: gigtype,
+  //     songs: songs
+
+  //   })
+  //     .catch(err => console.log(err))
+
+  // }
 
   render() {
+    const name = this.state.name
+
     return (
       <>
         <div className="jumbotron jumbotron-fluid"><h1>Create a new Setlist!</h1></div>
@@ -36,21 +66,20 @@ class CreateSetlist extends Component {
           <Col xs={6}>
             <Card>
 
-              <Form className="form">
+              <Form onSubmit={this.handleSubmit} className="form">
                 <Form.Group controlId="form-setlist-name">
                   <Form.Label>Setlist Name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter List Name" />
+                  <Form.Control type="text" placeholder="Enter List Name" name="name" onChange={this.handleInputChange} />
                 </Form.Group>
 
                 <Form.Group controlId="form-gig-type">
                   <Form.Label>Gig Type</Form.Label>
-                  <Form.Control type="text" placeholder="Wedding" />
+                  <Form.Control type="text" placeholder="Wedding" name="gigtype" onChange={this.handleInputChange} />
                 </Form.Group>
 
                 <Form.Group>
-                  <ModalButton>
+                  <ModalButton key={"modal"} />
 
-                  </ModalButton>
                 </Form.Group>
 
                 <Form.Group>

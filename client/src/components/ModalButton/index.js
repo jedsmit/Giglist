@@ -1,8 +1,9 @@
 import React, { Component, useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import Table from "react-bootstrap/Table"
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 import Song from "../Song";
-import API from "../../utils/API"
+import API from "../../utils/API";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 
@@ -14,7 +15,12 @@ class ModalButton extends Component {
 
   state = {
     isOpen: false,
-    songs: [{}]
+    songs: [{}],
+    addedSong: {
+      title: {
+        value: " "
+      }
+    }
   }
 
   showModal = (e) => {
@@ -31,9 +37,26 @@ class ModalButton extends Component {
       .then(response => this.setState({ songs: response.data }))
   };
 
+
+  handleAddButtonClick = (e) => {
+    e.preventDefault();
+    let title = e.target.title;
+    let artist = e.target.artist;
+    let genre = e.target.genre;
+    let bpm = e.target.bpm;
+
+    console.log(title)
+
+    // this.setState({
+    //   addedSong: [{ ...addedSong }]
+    // })
+
+  }
+
   render() {
 
     return (
+
       <> <h6>Click to add songs before saving<button className=" btn btn-success float-right" onClick={this.showModal}>Add Songs</button></h6>
 
         <Modal size="lg" show={this.state.isOpen} onHide={this.hideModal}>
@@ -48,19 +71,23 @@ class ModalButton extends Component {
                   <th>Artist</th>
                   <th>Genre</th>
                   <th>BPM</th>
+                  <th>Add to list</th>
                 </tr>
               </thead>
               <tbody>
                 {this.getSongs()}
                 {
                   this.state.songs.map((song) => {
-                    return <Song
-                      key={song._id}
-                      title={song.title}
-                      artist={song.artist}
-                      genre={song.genre}
-                      bpm={song.bpm}
-                    />
+                    return <tr>
+                      <Song
+                        key={song._id}
+                        title={song.title}
+                        artist={song.artist}
+                        genre={song.genre}
+                        bpm={song.bpm}
+                      />
+                      <td><Button key={"button"} target={"<tr>"} onClick={this.handleAddButtonClick}>+</Button></td>
+                    </tr>
                   })
                 }
               </tbody>
