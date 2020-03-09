@@ -43,6 +43,7 @@ class ModalButton extends Component {
     let title = e.target.title;
     let artist = e.target.artist;
     let genre = e.target.genre;
+    let keySig = e.target.keySig;
     let bpm = e.target.bpm;
 
     console.log(title)
@@ -70,6 +71,7 @@ class ModalButton extends Component {
                   <th>Title</th>
                   <th>Artist</th>
                   <th>Genre</th>
+                  <th>Key</th>
                   <th>BPM</th>
                   <th>Add to list</th>
                 </tr>
@@ -84,6 +86,7 @@ class ModalButton extends Component {
                         title={song.title}
                         artist={song.artist}
                         genre={song.genre}
+                        keySig={song.keySig}
                         bpm={song.bpm}
                       />
                       <td><Button key={"button"} target={"<tr>"} onClick={this.handleAddButtonClick}>+</Button></td>
@@ -97,6 +100,7 @@ class ModalButton extends Component {
               title={this.props.title}
               artist={this.props.artist}
               genre={this.props.genre}
+              keySig{this.props.keySig}
               bpm={this.props.bpm} /> */}
           </Modal.Body>
           <Modal.Footer>

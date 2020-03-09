@@ -15,25 +15,27 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
+        <div className="body">
+          <Navbar />
 
-        <Switch>
+          <Switch>
 
-          <Route exact path={["/setlist"]}>
-            <Setlist />
-          </Route>
-          <Route exact path={["/create-setlist"]}>
-            <CreateSetlist />
-          </Route>
-          <Route exact path={["/"]}>
-            <Home />
-          </Route>
-          <Route>
-            <NoMatch />
-          </Route>
+            <Route exact path={["/setlist"]}>
+              <Setlist />
+            </Route>
+            <Route exact path={["/create-setlist"]}>
+              <CreateSetlist />
+            </Route>
+            <Route exact path={["/"]}>
+              <Home />
+            </Route>
+            <Route>
+              <NoMatch />
+            </Route>
 
-        </Switch>
-        <Footer></Footer>
+          </Switch>
+          <Footer></Footer>
+        </div>
       </Router>
     </>
   );

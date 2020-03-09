@@ -10,6 +10,7 @@ class Song extends Component {
         <td>{this.props.title}</td>
         <td>{this.props.artist}</td>
         <td>{this.props.genre}</td>
+        <td>{this.props.keySig}</td>
         <td>{this.props.bpm}</td>
       </>
     )
