@@ -41,10 +41,10 @@ function ModalButton(props) {
   const handleAddButtonClick = (e) => {
     e.preventDefault();
     setAddedSongs(...addedSongs, {
-      title: e.title,
-      artist: e.artist,
-      genre: e.genre,
-      bpm: e.bpm
+      title: e.target.title,
+      artist: e.target.artist,
+      genre: e.trget.genre,
+      bpm: e.target.bpm
     })
 
   }
