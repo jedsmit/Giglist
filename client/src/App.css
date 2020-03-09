@@ -40,3 +40,7 @@
 body{
   font-family: 'Ubuntu';
 }
+
+.body{
+  background-color: rgb(138, 142, 146);
+}

@@ -92,6 +92,7 @@ function ModalButton(props) {
               title={this.props.title}
               artist={this.props.artist}
               genre={this.props.genre}
+              keySig{this.props.keySig}
               bpm={this.props.bpm} /> */}
         </Modal.Body>
         <Modal.Footer>
