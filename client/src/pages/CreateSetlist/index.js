@@ -5,11 +5,11 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button"
 import { Link } from "react-router-dom";
-import "./style.css"
+import "./createSetlist.css"
 import ModalButton from "../../components/ModalButton";
 import Song from "../../components/Song"
 import API from "../../utils/API"
-
+import Navbar from "../../components/Navbar";
 class CreateSetlist extends Component {
 
   state = {
@@ -60,6 +60,7 @@ class CreateSetlist extends Component {
 
     return (
       <>
+        <Navbar />
         <div className="jumbotron jumbotron-fluid"><h1>Create a new Setlist!</h1></div>
         <Row>
           <Col xs={3}></Col>

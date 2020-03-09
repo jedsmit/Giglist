@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import "./style.css"
+import "./userLists.css"
 import { Link } from "react-router-dom";
 import Setlist from "../Setlist";
 import API from "../../utils/API"

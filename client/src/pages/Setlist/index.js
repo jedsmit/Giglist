@@ -4,7 +4,8 @@ import Col from "react-bootstrap/col";
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import Badge from "react-bootstrap/Badge";
-import "./style.css"
+import Navbar from "../../components/Navbar";
+import "./setlist.css"
 
 function Setlist() {
 
@@ -16,6 +17,7 @@ function Setlist() {
 
   return (
     <>
+      <Navbar />
       <div className="jumbotron jumbotron-fluid"><h1>Setlist Name</h1></div>
       <Row>
         <Col xs={3}></Col>
