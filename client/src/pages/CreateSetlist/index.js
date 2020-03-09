@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import "./createSetlist.css"
 import ModalButton from "../../components/ModalButton";
 import API from "../../utils/API";
+import Navbar from "../../components/Navbar";
 
 function CreateSetlist(props) {
   //states
