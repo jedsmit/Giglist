@@ -12,6 +12,7 @@ function Song(props) {
       <td>{props.title}</td>
       <td>{props.artist}</td>
       <td>{props.genre}</td>
+      <td>{props.keySig}</td>
       <td>{props.bpm}</td>
     </>
   )

@@ -12,6 +12,7 @@ class Signup extends Component {
         <div className="card">
           <h1>Setlist</h1>
           <h3>Signup</h3>
+
           <form>
             <input
               className="form-item"
