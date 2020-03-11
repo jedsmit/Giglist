@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Song from "../Song";
 import API from "../../utils/API";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.css";
+import "./modalButton.css";
 
 
 
@@ -44,6 +44,7 @@ function ModalButton(props) {
       title: e.target.title,
       artist: e.target.artist,
       genre: e.trget.genre,
+      keySig: e.trget.keySig,
       bpm: e.target.bpm
     })
 
@@ -65,6 +66,7 @@ function ModalButton(props) {
                 <th>Title</th>
                 <th>Artist</th>
                 <th>Genre</th>
+                <th>Key</th>
                 <th>BPM</th>
                 <th>Add to list</th>
               </tr>
@@ -79,6 +81,7 @@ function ModalButton(props) {
                       title={song.title}
                       artist={song.artist}
                       genre={song.genre}
+                      keySig={song.keySig}
                       bpm={song.bpm}
                     />
                     <td><Button key={"button"} target={"<tr>"} onClick={handleAddButtonClick}>+</Button></td>

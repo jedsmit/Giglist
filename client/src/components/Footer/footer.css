@@ -1,7 +1,7 @@
 footer{
   background-color: lightskyblue;
   color: white;
-  position: sticky;
+  position: absolute;
 }
 
 .bottom{
