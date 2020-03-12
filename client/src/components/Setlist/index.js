@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
 
-class Setlist extends Component {
+function Setlist(props) {
 
-    render() {
-        return (
+    const [setlistState, setSetlistState] = useState(props)
 
-            <li className="list-group-item" key={this.props.key} >
-                {this.props.name} {this.props.gigtype}
-            </li>
+    return (
 
-        )
-    }
+        <li key={"li"} className="list-group-item">
+            {props.name} {props.gigtype}
+        </li>
+
+    )
 }
 export default Setlist;
 

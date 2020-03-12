@@ -1,14 +1,11 @@
 import React from "react";
+import Button from "react-bootstrap/Button"
 
 
 function Song(props) {
 
-
-
-
   return (
     <>
-      {props.key}
       <td>{props.title}</td>
       <td>{props.artist}</td>
       <td>{props.genre}</td>
