@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Song from "../Song";
 import API from "../../utils/API";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.css";
+import "./modalButton.css";
 
 
 

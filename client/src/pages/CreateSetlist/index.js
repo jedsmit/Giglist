@@ -6,10 +6,11 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
-import "./style.css"
 // import ModalButton from "../../components/ModalButton";
 import CreateListSong from "../../components/CreateListSong"
 import API from "../../utils/API"
+import "./createSetlist.css"
+import Navbar from "../../components/Navbar";
 
 function CreateSetlist() {
   //states
@@ -99,6 +100,7 @@ function CreateSetlist() {
 
   return (
     <>
+      <Navbar />
       <div className="jumbotron jumbotron-fluid"><h1>Create a new Setlist!</h1></div>
       <Row>
         <Col xs={1}></Col>
