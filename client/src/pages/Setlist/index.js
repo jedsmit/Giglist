@@ -72,7 +72,7 @@ function Setlist() {
             <Card.Header><h4>Setlist Name</h4></Card.Header>
             <Card.Body>
               <Row>
-                <Table striped bordered hover variant="light">
+                <Table >
                   <thead>
                     <tr>
                       <th>#</th>
