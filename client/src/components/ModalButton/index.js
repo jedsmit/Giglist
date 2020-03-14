@@ -2,110 +2,108 @@ import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import Song from "../Song";
-import API from "../../utils/API";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/row";
+import Col from "react-bootstrap/col";
 import "bootstrap/dist/css/bootstrap.min.css";
+import InputGroup from "react-bootstrap/InputGroup";
 import "./modalButton.css";
 
 
 
 function ModalButton(props) {
-  //states
-  // const [songState, setSongState] = useState(props)
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [songs, setSongs] = useState([{}]);
-  // const [addedSongs, setAddedSongs] = useState([{}])
-  //effects
-  // useEffect(() => {
-  //   getSongs();
-  // })
-  //just get the id of the song from the button press.  then get the song from the database.  Use value={value}
-  // const showModal = (e) => {
-  //   e.preventDefault();
-  //   setIsOpen(true);
-  // };
 
-  // const hideModal = () => {
-  //   setIsOpen(false);
-  // };
+  const [show, setShow] = useState(false);
 
-  // const getSongs = () => {
-  //   API.getSongs()
-  //     .then(response => {
-  //       // console.log("API")
-  //       let songs = response.data;
-  //       // console.log(songs)
-  //       setSongs(songs)
-  //     });
-  // }
-
-  // const handleAddButtonClick = (e) => {
-  //   e.preventDefault();
-  //   setAddedSongs(...addedSongs, {
-  //     title: e.target.title,
-  //     artist: e.target.artist,
-  //     genre: e.trget.genre,
-  //     bpm: e.target.bpm
-  //   })
-
-  // }
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
 
   return (
-    // <> <h6>Click to add songs before saving<button className=" btn btn-success float-right" onClick={showModal}>Add Songs</button></h6>
+    <>
+      <Modal
+        {...props}
+        size="x-lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Add Songs To Your Arsenal
+        </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group>
+              <Form.Label>Song Title</Form.Label>
+              <Form.Control type="text" placeholer="Song Title" name="song-title"></Form.Control>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Artist Name</Form.Label>
+              <Form.Control type="text" placeholer="Artist Name" name="artist-name"></Form.Control>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Genre</Form.Label>
+              <Form.Control type="text" placeholer="Jazz" name="genre-name"></Form.Control>
+            </Form.Group>
+            <Row>
+              <Col xs={3}>
+                <Form.Group >
+                  <Form.Label>Key</Form.Label>
+                  <Form.Control as="select" size="sm" custom>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                    <option>E</option>
+                    <option>f</option>
+                    <option>G</option>
+                  </Form.Control>
+                </Form.Group>
+              </Col>
 
-    //   <Modal size="lg" show={isOpen} onHide={hideModal}>
-    //     <Modal.Header>
-    //       <Modal.Title>Add Songs</Modal.Title>
-    //     </Modal.Header>
-    //     <Modal.Body className="justify-content-center">
-    //       <Table>
-    //         <thead>
-    //           <tr>
-    //             <th>Title</th>
-    //             <th>Artist</th>
-    //             <th>Genre</th>
-    //             <th>BPM</th>
-    //             <th>Add to list</th>
-    //           </tr>
-    //         </thead>
-    //         <tbody>
+              <Col xs={3}><Form.Group>
+                <Form.Label className="radio"> &#9839;<InputGroup.Radio name="radio" value="sharp" aria-label="Radio button for following text input" />
+                </Form.Label>
 
-    //           {/* {
-    //             songs.map((song) => {
-    //               return <tr> */}
-    //           <Song
-    //           // key={props._id}
-    //           // title={props.title}
-    //           // artist={props.artist}
-    //           // genre={props.genre}
-    //           // bpm={props.bpm}
-    //           // keySig={props.keySig}
-    //           />
-    //           {/* <td><Button key={"button"} target={"<tr>"} onClick={handleAddButtonClick}>+</Button></td> */}
-    //           {/* </tr>
-    //             }) */}
-    //           }
-    //         </tbody>
-    //       </Table>
-    //       <Song
-    //         key={props.key}
-    //         title={props.title}
-    //         artist={props.artist}
-    //         genre={props.genre}
-    //         keySig={props.keySig}
-    //         bpm={props.bpm} />
-    //     </Modal.Body>
-    //     <Modal.Footer>
-    //       <button className=" btn btn-success" onClick={hideModal}>Cancel</button>
-    //       <button className="save btn btn-success">Save</button>
-    //     </Modal.Footer>
-    // //   </Modal>
-    // </>
+
+                <Form.Label className="radio">
+                  &#9837;<InputGroup.Radio name="radio" value="flat" aria-label="Radio button for following text input" /></Form.Label>
+              </Form.Group>
+              </Col>
+
+              <Col xs={3}>
+                <Form.Group >
+                  <Form.Label>Maj/min</Form.Label>
+                  <Form.Control as="select" size="sm" custom>
+                    <option>Major</option>
+                    <option>Minor</option>
+
+                  </Form.Control>
+                </Form.Group>
+              </Col>
+
+              <Col xs={3}>
+                <Form.Group>
+                  <Form.Label>Bpm</Form.Label>
+                  <Form.Control type="text" placeholer="120" name="bpm"></Form.Control>
+                </Form.Group>
+              </Col>
+            </Row>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={handleClose}>
+            Add
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
 
   );
-
 }
+
+
 
 export default ModalButton;

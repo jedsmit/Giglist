@@ -21,7 +21,7 @@ function Setlist() {
   var el = document.createElement('html');
 
   //assign that element the text of whatever icon you want
-  el.innerHTML = "F&#9839; Major";
+  el.innerHTML = "F &#9839; Major";
 
   const handleBlinkClick = (selectedSong) => {
 
