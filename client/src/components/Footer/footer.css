@@ -2,6 +2,8 @@ footer{
   background-color: lightskyblue;
   color: white;
   position: absolute;
+  margin-bottom: 0px
+  ;
 }
 
 .bottom{
@@ -15,5 +17,5 @@ h5{
   margin-bottom: 0px;
   margin-top: 8px;
   height: 20px;
-  text-shadow: 4px 4px 4px #aaa;
+  text-shadow: 4px 4px 4px rgb(15, 15, 15);
 }

@@ -42,5 +42,9 @@ body{
 }
 
 .body{
-  background-color: rgb(138, 142, 146);
+  background-image: url("./binding_dark/drums-background.jpg");
+  background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+height: inherit;
 }

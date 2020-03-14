@@ -1,6 +1,5 @@
 .setlist{
   font-family: "Premanent Marker", Permanent Marker;
-  background-image: url("../../components/Song/paper/paper.png");
 }
 
 /*The equation is 60,000 / BPM = MS*/
@@ -15,6 +14,9 @@
 
 @keyframes blinkingText{
   0%{    color: transparent; }
-  100%{   color: white;    }
+  100%{   color: black;    }
 }
 
+h4{
+  color: white;
+}

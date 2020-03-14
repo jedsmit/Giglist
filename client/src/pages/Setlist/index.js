@@ -64,11 +64,11 @@ function Setlist() {
   return (
     <>
       <Navbar />
-      <div className="jumbotron jumbotron-fluid"><h1>Setlist Name</h1></div>
+      <div ><h1>Setlist Name</h1></div>
       <Row>
         <Col xs={3}></Col>
         <Col xs={6}>
-          <Card className="setlist">
+          <Card border="warning" className="setlist">
             <Card.Header><h4>Setlist Name</h4></Card.Header>
             <Card.Body>
               <Row>
@@ -88,13 +88,13 @@ function Setlist() {
                         <tr key={song._id}>
                           <td>{i + 1}</td>
                           <td>{song.title}</td>
-                          <td><Badge className="key-badge" pill variant="info" ><h6>{song.keySig}</h6></Badge></td>
+                          <td><Badge className="key-badge" pill variant="warning" ><h6>{song.keySig}</h6></Badge></td>
                           <td><Badge style={song.blinkingText ? {
 
                             animationName: "blinkingText",
                             animationDuration: song.ms,
                             animationIterationCount: "infinite"
-                          } : {}} pill variant="info" key={Badge} onClick={() => handleBlinkClick(song)}><h6>{song.bpm}</h6></Badge></td>
+                          } : {}} pill variant="warning" key={Badge} onClick={() => handleBlinkClick(song)}><h6>{song.bpm}</h6></Badge></td>
                         </tr>
                       ))
                     }

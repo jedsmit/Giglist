@@ -22,7 +22,7 @@ function ModalButton(props) {
 
   return (
     <>
-      <Modal
+      <Modal className="modal-style"
         {...props}
         size="x-lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -94,7 +94,7 @@ function ModalButton(props) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" onClick={handleClose}>
+          <Button variant="warning" onClick={handleClose}>
             Add
           </Button>
         </Modal.Footer>
