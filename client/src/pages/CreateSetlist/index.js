@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
-// import ModalButton from "../../components/ModalButton";
+import ModalButton from "../../components/ModalButton";
 import CreateListSong from "../../components/CreateListSong"
 import API from "../../utils/API"
 import "./createSetlist.css"
@@ -19,7 +19,7 @@ function CreateSetlist() {
   const [gigType, setGigType] = useState("");
   const [songState, setSongState] = useState("");
   const [addedSongs, setAddedSongs] = useState([]);
-
+  const [modalShow, setModalShow] = React.useState(false);
   //effects
 
   useEffect(() => {
@@ -102,6 +102,18 @@ function CreateSetlist() {
     <>
       <Navbar />
       <div className="jumbotron jumbotron-fluid"><h1>Create a new Setlist!</h1></div>
+      <Row>
+        <Col xs={1}></Col>
+        <Col xs={5}></Col>
+        <Col xs={5}>
+          <Card><h3>Would Like to Add More Bad Ass Songs? </h3><Button variant="success" onClick={() => setModalShow(true)}>
+            Then Click This Bitch Right Here!!!!
+      </Button>
+
+            <ModalButton
+              show={modalShow}
+              onHide={() => setModalShow(false)} /></Card></Col>
+      </Row>
       <Row>
         <Col xs={1}></Col>
         <Col xs={5}>

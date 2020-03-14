@@ -21,7 +21,7 @@ function Setlist() {
   var el = document.createElement('html');
 
   //assign that element the text of whatever icon you want
-  el.innerHTML = "F&#9839; Major";
+  el.innerHTML = "F &#9839; Major";
 
   const handleBlinkClick = (selectedSong) => {
 
@@ -72,7 +72,7 @@ function Setlist() {
             <Card.Header><h4>Setlist Name</h4></Card.Header>
             <Card.Body>
               <Row>
-                <Table striped bordered hover variant="light">
+                <Table >
                   <thead>
                     <tr>
                       <th>#</th>
