@@ -4,7 +4,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Navbar from "../../components/Navbar";
-import "./style.css";
+import "./404.css";
+import Img from "react-image";
 
 function NoMatch() {
   return (
@@ -13,7 +14,7 @@ function NoMatch() {
       <Container className="background">
         <Row>
           <Col>
-            <Jumbotron className="no-match">
+            <Jumbotron boarder="warning" className="no-match">
               <h1 className="text-center">404 Stage Not Found!!!</h1>
             </Jumbotron>
           </Col>

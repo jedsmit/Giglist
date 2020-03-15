@@ -5,7 +5,8 @@ import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import Badge from "react-bootstrap/Badge";
 import Navbar from "../../components/Navbar";
-import "./setlist.css"
+import "./setlist.css";
+import UserList from "../../components/UserLists";
 import API from "../../utils/API";
 
 
@@ -16,12 +17,6 @@ function Setlist() {
   useEffect(() => {
     getSongs();
   }, [])
-
-  //create an html element that is going to live somewhere on page but in the background so it doesn't matter
-  var el = document.createElement('html');
-
-  //assign that element the text of whatever icon you want
-  el.innerHTML = "F &#9839; Major";
 
   const handleBlinkClick = (selectedSong) => {
 
@@ -64,11 +59,11 @@ function Setlist() {
   return (
     <>
       <Navbar />
-      <div className="jumbotron jumbotron-fluid"><h1>Setlist Name</h1></div>
+      <div ><h1 className="setlist-header">Setlist Name</h1></div>
       <Row>
         <Col xs={3}></Col>
         <Col xs={6}>
-          <Card className="setlist">
+          <Card border="warning" className="setlist">
             <Card.Header><h4>Setlist Name</h4></Card.Header>
             <Card.Body>
               <Row>
@@ -88,13 +83,13 @@ function Setlist() {
                         <tr key={song._id}>
                           <td>{i + 1}</td>
                           <td>{song.title}</td>
-                          <td><Badge className="key-badge" pill variant="info" ><h6>{song.keySig}</h6></Badge></td>
+                          <td><Badge className="key-badge" pill variant="warning" ><h6>{song.keySig}</h6></Badge></td>
                           <td><Badge style={song.blinkingText ? {
 
                             animationName: "blinkingText",
                             animationDuration: song.ms,
                             animationIterationCount: "infinite"
-                          } : {}} pill variant="info" key={Badge} onClick={() => handleBlinkClick(song)}><h6>{song.bpm}</h6></Badge></td>
+                          } : {}} pill variant="warning" key={Badge} onClick={() => handleBlinkClick(song)}><h6>{song.bpm}</h6></Badge></td>
                         </tr>
                       ))
                     }

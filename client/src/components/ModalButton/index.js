@@ -22,7 +22,7 @@ function ModalButton(props) {
 
   return (
     <>
-      <Modal
+      <Modal className="modal-style"
         {...props}
         size="x-lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -35,20 +35,24 @@ function ModalButton(props) {
         </Modal.Header>
         <Modal.Body>
           <Form>
+            {/* song title */}
             <Form.Group>
               <Form.Label>Song Title</Form.Label>
               <Form.Control type="text" placeholer="Song Title" name="song-title"></Form.Control>
             </Form.Group>
+            {/* artist name */}
             <Form.Group>
               <Form.Label>Artist Name</Form.Label>
               <Form.Control type="text" placeholer="Artist Name" name="artist-name"></Form.Control>
             </Form.Group>
+            {/* genre */}
             <Form.Group>
               <Form.Label>Genre</Form.Label>
               <Form.Control type="text" placeholer="Jazz" name="genre-name"></Form.Control>
             </Form.Group>
             <Row>
               <Col xs={3}>
+                {/* song key */}
                 <Form.Group >
                   <Form.Label>Key</Form.Label>
                   <Form.Control as="select" size="sm" custom>
@@ -62,7 +66,7 @@ function ModalButton(props) {
                   </Form.Control>
                 </Form.Group>
               </Col>
-
+              {/* radio buttons for sharp or flat symbol */}
               <Col xs={3}><Form.Group>
                 <Form.Label className="radio"> &#9839;<InputGroup.Radio name="radio" value="sharp" aria-label="Radio button for following text input" />
                 </Form.Label>
@@ -74,6 +78,7 @@ function ModalButton(props) {
               </Col>
 
               <Col xs={3}>
+                {/* option for maj/min key */}
                 <Form.Group >
                   <Form.Label>Maj/min</Form.Label>
                   <Form.Control as="select" size="sm" custom>
@@ -85,6 +90,7 @@ function ModalButton(props) {
               </Col>
 
               <Col xs={3}>
+                {/* bpm */}
                 <Form.Group>
                   <Form.Label>Bpm</Form.Label>
                   <Form.Control type="text" placeholer="120" name="bpm"></Form.Control>
@@ -94,7 +100,7 @@ function ModalButton(props) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" onClick={handleClose}>
+          <Button variant="warning" onClick={handleClose}>
             Add
           </Button>
         </Modal.Footer>

@@ -101,12 +101,12 @@ function CreateSetlist() {
   return (
     <>
       <Navbar />
-      <div className="jumbotron jumbotron-fluid"><h1>Create a new Setlist!</h1></div>
-      <Row>
+
+      <Row className="create-setlist-page">
         <Col xs={1}></Col>
-        <Col xs={5}></Col>
+        <Col xs={5}><div className="text-center"><h1 className="title">Create a new Setlist!</h1></div></Col>
         <Col xs={5}>
-          <Card><h3>Would Like to Add More Bad Ass Songs? </h3><Button variant="success" onClick={() => setModalShow(true)}>
+          <Card border="warning"><h3>Would Like to Add More Bad Ass Songs? </h3><Button variant="warning" onClick={() => setModalShow(true)}>
             Then Click This Bitch Right Here!!!!
       </Button>
 
@@ -117,33 +117,32 @@ function CreateSetlist() {
       <Row>
         <Col xs={1}></Col>
         <Col xs={5}>
-          <Card>
-
+          <Card border="warning">
             <Form onSubmit={handleSubmit} className="form">
               <Form.Group controlId="form-setlist-name">
                 <Form.Label>Setlist Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter List Name" name="name" onChange={handleInputChange} />
+                <Form.Control className="setlist-input" type="text" placeholder="Enter List Name" name="name" onChange={handleInputChange} />
               </Form.Group>
 
               <Form.Group controlId="form-gig-type">
                 <Form.Label>Gig Type</Form.Label>
-                <Form.Control type="text" placeholder="Wedding" name="gigtype" onChange={handleInputChange} />
+                <Form.Control className="setlist-input" type="text" placeholder="Wedding" name="gigtype" onChange={handleInputChange} />
               </Form.Group>
 
               <Form.Group>
                 <Form.Label>Songs</Form.Label>
-                <Card>
+                <Card border="warning">
                   <Table>
                     <tbody>
                       {
                         addedSongs.map((song, index) => {
                           // console.log(song._id)
-                          return <tr key={index}>
+                          return <tr className="list" key={index}>
                             {/* key={song._id} */}
                             <td>{song.title}</td>
                             <td>{song.artist}</td>
                             <td>{song.genre}</td>
-                            <td><Button onClick={() => handlesSubtractButtonClick(song)}>-</Button></td>
+                            <td><Button variant="dark" className="plus" onClick={() => handlesSubtractButtonClick(song)}><strong>-</strong></Button></td>
                             {/* // keySig={song.key}
                         // bpm={song.bpm} */}
                           </tr>
@@ -156,16 +155,17 @@ function CreateSetlist() {
 
               <Form.Group>
                 <Link to="/">
-                  <Button onClick={saveSetlist} variant="success float-right" type="submit">
+                  <Button onClick={saveSetlist} variant="warning float-right" type="submit">
                     Save List
                  </Button>
                 </Link>
               </Form.Group>
             </Form>
+
           </Card>
         </Col>
         <Col xs={5}>
-          <Card>
+          <Card border="warning">
             {/* displays all songs in the db  */}
             <Table responsive>
               <thead>

@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./style.css";
+import "./navbar.css";
+import 'font-awesome/css/font-awesome.min.css';
+
 function Navbar() {
   return (
+
     <nav className="justify-content-end navbar navbar-dark bg-dark sticky-top">
       <Link className="navbar-brand" to="/">Home</Link>
       <Link className="navbar-brand" to="/create-setlist">Create Setlist</Link>
     </nav>
-
   )
 }
 

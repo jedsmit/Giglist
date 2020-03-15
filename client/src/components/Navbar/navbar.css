@@ -1,0 +1,12 @@
+.navbar{
+  text-shadow: 4px 4px 4px #aaa;
+}
+
+.navbar-brand{
+  color: gold !important;
+}
+
+nav{
+  background-image: url("./binding_dark/binding_dark.png");
+  
+}
