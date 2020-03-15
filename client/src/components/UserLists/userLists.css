@@ -14,7 +14,7 @@ h5{
 
 .card{
   box-shadow:0px 6px 10px 4px #201e1e;
-  margin: 5px;
+  margin: 10px;
   color: white;
   background-color: rgba(46, 44, 44, 0.1) !important;
 }
@@ -30,5 +30,9 @@ button{
 
 .list{
   padding-left: 0px;
+}
+
+.home-list{
+  margin-bottom: 170px;
 }
 
