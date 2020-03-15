@@ -12,6 +12,7 @@
 .card{
     background-color: #fff;
     border-radius: 15px;
+    border-color: gold;
     padding: 0.8rem;
 }
 
@@ -38,7 +39,7 @@
 
     height: 35px;
     color: #fff;
-    background-color: #28a745;
+    background-color: gold;
     border: none;
     border-radius: 6px;
     letter-spacing: 0.2rem;
@@ -47,4 +48,15 @@
 }
 .form-submit:hover{
    opacity: 0.6;
+}
+
+.center{
+  background-image: url("../../binding_dark/drums-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.login-logo{
+  color: white;
 }

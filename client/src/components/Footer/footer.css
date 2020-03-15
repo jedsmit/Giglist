@@ -1,9 +1,7 @@
 footer{
-  background-color: lightskyblue;
-  color: white;
   position: absolute;
-  margin-bottom: 0px
-  ;
+  margin-bottom: 0px;
+  background-image: url("./binding_dark/binding_dark.png");
 }
 
 .bottom{
@@ -11,9 +9,10 @@ footer{
   color: white;
   margin-bottom: 0px;
   height: 30px;
+  background-image: url("./binding_dark/binding_dark.png");
 }
 h5{
-  color: white;
+  color: gold;
   margin-bottom: 0px;
   margin-top: 8px;
   height: 20px;

@@ -121,12 +121,12 @@ function CreateSetlist() {
             <Form onSubmit={handleSubmit} className="form">
               <Form.Group controlId="form-setlist-name">
                 <Form.Label>Setlist Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter List Name" name="name" onChange={handleInputChange} />
+                <Form.Control className="setlist-input" type="text" placeholder="Enter List Name" name="name" onChange={handleInputChange} />
               </Form.Group>
 
               <Form.Group controlId="form-gig-type">
                 <Form.Label>Gig Type</Form.Label>
-                <Form.Control type="text" placeholder="Wedding" name="gigtype" onChange={handleInputChange} />
+                <Form.Control className="setlist-input" type="text" placeholder="Wedding" name="gigtype" onChange={handleInputChange} />
               </Form.Group>
 
               <Form.Group>

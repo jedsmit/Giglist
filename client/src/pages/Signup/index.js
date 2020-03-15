@@ -1,5 +1,5 @@
 import React, { component, Component } from "react";
-import "./style.css";
+import "./signup.css";
 
 class Signup extends Component {
   constructor() {
@@ -11,7 +11,7 @@ class Signup extends Component {
       <div className="center">
         <div className="card">
           <h1>Setlist</h1>
-          <h3>Signup</h3>
+          <h3 className="login-logo">Signup</h3>
 
           <form>
             <input

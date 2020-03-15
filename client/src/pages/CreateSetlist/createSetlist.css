@@ -24,5 +24,12 @@ td{
 
 tr{
   color: gold;
-  
+}
+
+th{
+  text-decoration-line: underline;
+}
+
+.setlist-input{
+  opacity: .4;
 }
