@@ -5,7 +5,8 @@ import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import Badge from "react-bootstrap/Badge";
 import Navbar from "../../components/Navbar";
-import "./setlist.css"
+import "./setlist.css";
+import UserList from "../../components/UserLists";
 import API from "../../utils/API";
 
 
@@ -16,12 +17,6 @@ function Setlist() {
   useEffect(() => {
     getSongs();
   }, [])
-
-  //create an html element that is going to live somewhere on page but in the background so it doesn't matter
-  var el = document.createElement('html');
-
-  //assign that element the text of whatever icon you want
-  el.innerHTML = "F &#9839; Major";
 
   const handleBlinkClick = (selectedSong) => {
 
@@ -69,7 +64,7 @@ function Setlist() {
         <Col xs={3}></Col>
         <Col xs={6}>
           <Card border="warning" className="setlist">
-            <Card.Header><h4 >Setlist Name</h4></Card.Header>
+            <Card.Header><h4>Setlist Name</h4></Card.Header>
             <Card.Body>
               <Row>
                 <Table >
