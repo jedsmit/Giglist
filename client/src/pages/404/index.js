@@ -5,7 +5,6 @@ import Col from "react-bootstrap/Col";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Navbar from "../../components/Navbar";
 import "./404.css";
-import Img from "react-image";
 
 function NoMatch() {
   return (
