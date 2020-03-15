@@ -64,12 +64,12 @@ function Setlist() {
   return (
     <>
       <Navbar />
-      <div ><h1>Setlist Name</h1></div>
+      <div ><h1 className="setlist-header">Setlist Name</h1></div>
       <Row>
         <Col xs={3}></Col>
         <Col xs={6}>
           <Card border="warning" className="setlist">
-            <Card.Header><h4>Setlist Name</h4></Card.Header>
+            <Card.Header><h4 >Setlist Name</h4></Card.Header>
             <Card.Body>
               <Row>
                 <Table >
