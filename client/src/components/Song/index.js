@@ -1,12 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
+import "./song.css";
 
-class Song extends Component {
 
-  render() {
-    return (
-      <li>{this.props.title} by: {this.props.artist} genre: {this.props.genre} bpm: {this.props.bpm} </li>
-    )
-  }
+function Song(props) {
+
+  return (
+    <>
+      <td>{props.title}</td>
+      <td>{props.artist}</td>
+      <td>{props.genre}</td>
+      <td>{props.keySig}</td>
+      <td>{props.bpm}</td>
+    </>
+  )
 }
+
 
 export default Song;

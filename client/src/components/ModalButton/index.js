@@ -1,40 +1,115 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import Songs from "../Song";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/row";
+import Col from "react-bootstrap/col";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.css";
+import InputGroup from "react-bootstrap/InputGroup";
+import "./modalButton.css";
 
 
 
-const ModalButton = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+function ModalButton(props) {
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
-  const showModal = (e) => {
-    e.preventDefault();
-    setIsOpen(true);
-  };
-
-  const hideModal = () => {
-    setIsOpen(false);
-  };
 
   return (
-    <><h6>Click to add songs before saving<button className=" btn btn-success float-right" onClick={showModal}>Add Songs</button></h6>
-
-      <Modal size="lg" show={isOpen} onHide={hideModal}>
-        <Modal.Header>
-          <Modal.Title>Add Songs</Modal.Title>
+    <>
+      <Modal className="modal-style"
+        {...props}
+        size="x-lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Add Songs To Your Arsenal
+        </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="justify-content-center"><Songs></Songs></Modal.Body>
+        <Modal.Body>
+          <Form>
+            {/* song title */}
+            <Form.Group>
+              <Form.Label>Song Title</Form.Label>
+              <Form.Control type="text" placeholer="Song Title" name="song-title"></Form.Control>
+            </Form.Group>
+            {/* artist name */}
+            <Form.Group>
+              <Form.Label>Artist Name</Form.Label>
+              <Form.Control type="text" placeholer="Artist Name" name="artist-name"></Form.Control>
+            </Form.Group>
+            {/* genre */}
+            <Form.Group>
+              <Form.Label>Genre</Form.Label>
+              <Form.Control type="text" placeholer="Jazz" name="genre-name"></Form.Control>
+            </Form.Group>
+            <Row>
+              <Col xs={3}>
+                {/* song key */}
+                <Form.Group >
+                  <Form.Label>Key</Form.Label>
+                  <Form.Control as="select" size="sm" custom>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                    <option>E</option>
+                    <option>f</option>
+                    <option>G</option>
+                  </Form.Control>
+                </Form.Group>
+              </Col>
+              {/* radio buttons for sharp or flat symbol */}
+              <Col xs={3}><Form.Group>
+                <Form.Label className="radio"> &#9839;<InputGroup.Radio name="radio" value="sharp" aria-label="Radio button for following text input" />
+                </Form.Label>
+
+
+                <Form.Label className="radio">
+                  &#9837;<InputGroup.Radio name="radio" value="flat" aria-label="Radio button for following text input" /></Form.Label>
+              </Form.Group>
+              </Col>
+
+              <Col xs={3}>
+                {/* option for maj/min key */}
+                <Form.Group >
+                  <Form.Label>Maj/min</Form.Label>
+                  <Form.Control as="select" size="sm" custom>
+                    <option>Major</option>
+                    <option>Minor</option>
+
+                  </Form.Control>
+                </Form.Group>
+              </Col>
+
+              <Col xs={3}>
+                {/* bpm */}
+                <Form.Group>
+                  <Form.Label>Bpm</Form.Label>
+                  <Form.Control type="text" placeholer="120" name="bpm"></Form.Control>
+                </Form.Group>
+              </Col>
+            </Row>
+          </Form>
+        </Modal.Body>
         <Modal.Footer>
-          <button className=" btn btn-success" onClick={hideModal}>Cancel</button>
-          <button className="save btn btn-success">Save</button>
+          <Button variant="warning" onClick={handleClose}>
+            Add
+          </Button>
         </Modal.Footer>
       </Modal>
     </>
 
   );
 }
+
+
 
 export default ModalButton;

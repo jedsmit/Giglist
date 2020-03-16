@@ -1,0 +1,27 @@
+.setlist{
+  font-family: "Premanent Marker", Permanent Marker;
+}
+
+/*The equation is 60,000 / BPM = MS*/
+.bpm-flash{
+  animation: blinkingText 500ms infinite;
+}
+
+.bpm-flash2{
+  animation: blinkingText 666ms infinite;
+}
+
+
+@keyframes blinkingText{
+  0%{    color: transparent; }
+  100%{   color: black;    }
+}
+
+h4{
+  color: white;
+}
+
+.setlist-header{
+  margin: 20px;
+}
+

@@ -1,0 +1,18 @@
+.radio{
+  padding: 4px;
+  margin-top: 4px;
+  
+}
+
+.modal-style {
+  color: white;
+  background-color: rgba(26, 25, 25, 0.1) !important;
+}
+
+.modal-content{
+  background-color: #343a40;
+}
+
+.modal-title{
+  color: gold;
+}

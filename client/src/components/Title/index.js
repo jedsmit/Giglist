@@ -1,8 +1,24 @@
 import React from "react";
-import "./style.css";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "./title.css";
 function Title() {
+
   return (
-    <div className="jumbotron jumbotron-fluid"><h1>Welcome to Setlist!</h1></div>
+    <>
+      <Row>
+        <Col></Col>
+        <div><strong><h1>Welcome to Setlist!</h1></strong></div>
+        <Col></Col>
+      </Row>
+      <br>
+      </br>
+      <br>
+      </br>
+      <Row>
+        <Col><h3 className="name">Insert Name Here</h3></Col>
+      </Row>
+    </>
   )
 }
 

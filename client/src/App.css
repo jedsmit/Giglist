@@ -40,3 +40,10 @@
 body{
   font-family: 'Ubuntu';
 }
+
+.body{
+  background-image: url("./binding_dark/drums-background.jpg");
+  background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}

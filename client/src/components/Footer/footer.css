@@ -1,0 +1,20 @@
+footer{
+  position: absolute;
+  margin-bottom: 0px;
+  background-image: url("./binding_dark/binding_dark.png");
+}
+
+.bottom{
+  background-color:#343a40 ;
+  color: white;
+  margin-bottom: 0px;
+  height: 30px;
+  background-image: url("./binding_dark/binding_dark.png");
+}
+h5{
+  color: gold;
+  margin-bottom: 0px;
+  margin-top: 8px;
+  height: 20px;
+  text-shadow: 4px 4px 4px rgb(15, 15, 15);
+}
