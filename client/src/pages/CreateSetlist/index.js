@@ -16,8 +16,6 @@ function CreateSetlist() {
   //states
   const [songs, setSongs] = useState([]);
   const [name, setName] = useState("");
-  const [gigType, setGigType] = useState("");
-  const [songState, setSongState] = useState("");
   const [addedSongs, setAddedSongs] = useState([]);
   const [modalShow, setModalShow] = React.useState(false);
   //effects

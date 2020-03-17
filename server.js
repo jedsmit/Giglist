@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config();
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -15,7 +16,11 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 //Database connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/setlistdb", { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/setlistdb", {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+})
     .then(() => console.log("Database connected, you fuck."))
     .catch(err => console.log(err));
 
