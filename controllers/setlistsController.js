@@ -1,4 +1,5 @@
 const db = require("../models");
+const auth = require('../middleware/auth')
 
 module.exports = {
     findAll: function (req, res) {
@@ -6,6 +7,7 @@ module.exports = {
             .find(req.query)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+
     },
     findById: function (req, res) {
         db.Setlist

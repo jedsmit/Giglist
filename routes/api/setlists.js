@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const setlistsController = require("../../controllers/setlistsController")
+const auth = require('../../middleware/auth')
 
 // Matches with "/api/setlists"
 router.route("/")
     .get(setlistsController.findAll)
-    .post(setlistsController.create);
+    .post(auth, setlistsController.create);
 
 // Matches with "/api/setlists/:id"
 router
