@@ -4,6 +4,7 @@ import Col from "react-bootstrap/col";
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import Badge from "react-bootstrap/Badge";
+import Stars from "../../components/Rating";
 import Navbar from "../../components/Navbar";
 import "./setlist.css";
 import UserList from "../../components/UserLists";
@@ -64,7 +65,7 @@ function Setlist() {
         <Col xs={3}></Col>
         <Col xs={6}>
           <Card border="warning" className="setlist">
-            <Card.Header><h4>Setlist Name</h4></Card.Header>
+            <Card.Header><Row><Col><h4>Setlist Name</h4></Col><Stars className="justify-content-end"></Stars></Row></Card.Header>
             <Card.Body>
               <Row>
                 <Table >
