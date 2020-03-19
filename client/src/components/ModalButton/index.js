@@ -55,7 +55,7 @@ function ModalButton(props) {
                 {/* song key */}
                 <Form.Group >
                   <Form.Label>Key</Form.Label>
-                  <Form.Control as="select" size="sm" custom>
+                  <Form.Control as="select" size="sm" name="key" custom>
                     <option>A</option>
                     <option>B</option>
                     <option>C</option>
@@ -68,12 +68,12 @@ function ModalButton(props) {
               </Col>
               {/* radio buttons for sharp or flat symbol */}
               <Col xs={3}><Form.Group>
-                <Form.Label className="radio"> &#9839;<InputGroup.Radio name="radio" value="sharp" aria-label="Radio button for following text input" />
+                <Form.Label className="radio"> &#9839;<InputGroup.Radio name="radio" value="sharp" aria-label="Radio button for sharp" />
                 </Form.Label>
 
 
                 <Form.Label className="radio">
-                  &#9837;<InputGroup.Radio name="radio" value="flat" aria-label="Radio button for following text input" /></Form.Label>
+                  &#9837;<InputGroup.Radio name="radio" value="flat" aria-label="Radio button for flat" /></Form.Label>
               </Form.Group>
               </Col>
 
@@ -81,7 +81,7 @@ function ModalButton(props) {
                 {/* option for maj/min key */}
                 <Form.Group >
                   <Form.Label>Maj/min</Form.Label>
-                  <Form.Control as="select" size="sm" custom>
+                  <Form.Control as="select" size="sm" name="maj-min" custom>
                     <option>Major</option>
                     <option>Minor</option>
 

@@ -16,7 +16,7 @@ function Title() {
       <br>
       </br>
       <Row>
-        <Col><h3 className="name">Insert Name Here</h3></Col>
+        <Col><h3 id="name" className="name">Insert Name Here</h3></Col>
       </Row>
     </>
   )

@@ -6,7 +6,9 @@ const songSchema = new Schema({
   artist: { type: String },
   genre: { type: String },
   bpm: { type: Number },
-  keySig: { type: String }
+  keySig: { type: String },
+  sharpFlat: { type: String },
+  majMin: { type: String }
 });
 
 const Song = mongoose.model("Song", songSchema);
