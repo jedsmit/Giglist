@@ -13,7 +13,7 @@ import API from "../../utils/API"
 
 function ModalButton(props) {
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
@@ -23,18 +23,14 @@ function ModalButton(props) {
   const [key, setKey] = useState("A");
   const [keySig, setKeySig] = useState("");
 
+  //concatinates keySig states
   useEffect(() => {
     setKeySig(key + sharpOrFlat + majMin)
     console.log(keySig)
   })
 
-  // useEffect(() => {
-  //   console.log(bpm);
-  // })
-
-
   //closes modal
-  const handleClose = () => setShow(false);
+  // const handleClose = () => setShow(false);
 
 
 
@@ -52,7 +48,7 @@ function ModalButton(props) {
         keySig: keySig
       }
     ).then(res => {
-      handleClose();
+      props.onHide();
     })
       .catch(err => console.log(err))
   };

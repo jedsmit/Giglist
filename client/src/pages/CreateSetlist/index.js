@@ -19,7 +19,7 @@ function CreateSetlist(props) {
   const [name, setName] = useState("");
   const [gigtype, setGigtype] = useState("")
   const [addedSongs, setAddedSongs] = useState([]);
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
   //effects
 
   useEffect(() => {
@@ -30,7 +30,6 @@ function CreateSetlist(props) {
 
   // save setlist to database when form is submitted
   const handleSubmit = (e) => {
-    console.log("is it the obj?")
     e.preventDefault();
 
     //sends to backend
