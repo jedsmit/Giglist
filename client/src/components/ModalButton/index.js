@@ -13,13 +13,13 @@ import API from "../../utils/API"
 
 function ModalButton(props) {
 
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
   const [bpm, setBpm] = useState(0);
   const [majMin, setMajMin] = useState("Major")
-  const [sharpOrFlat, setSharpOrFlat] = useState("");
+  const [sharpOrFlat, setSharpOrFlat] = useState(" ");
   const [key, setKey] = useState("A");
   const [keySig, setKeySig] = useState("");
 
@@ -30,9 +30,10 @@ function ModalButton(props) {
   })
 
   //closes modal
-  // const handleClose = () => setShow(false);
+  const handleClose = (e) => {
+    props.onHide();
 
-
+  }
 
   // save song to database when form is submitted
   const handleSubmit = (e) => {
@@ -48,7 +49,7 @@ function ModalButton(props) {
         keySig: keySig
       }
     ).then(res => {
-      props.onHide();
+      handleClose();
     })
       .catch(err => console.log(err))
   };
