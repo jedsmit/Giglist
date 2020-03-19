@@ -16,6 +16,7 @@ function CreateSetlist() {
   //states
   const [songs, setSongs] = useState([]);
   const [name, setName] = useState("");
+  const [gigtype, setGigtype] = useState("")
   const [addedSongs, setAddedSongs] = useState([]);
   const [modalShow, setModalShow] = React.useState(false);
   //effects
@@ -32,30 +33,37 @@ function CreateSetlist() {
 
   // save setlist to database when form is submitted
   const handleSubmit = (e) => {
-    saveSetlist(e.target);
+    e.preventDefault();
+    const newSetlist = {
+      name: name,
+      gigtype: gigtype,
+      songs: addedSongs
+    };
+    console.log(newSetlist)
+    saveSetlist(newSetlist);
   }
 
   // handles text fields on form
-  const handleInputChange = (e) => {
-    e.preventDefault();
-    setName({
-      [e.target.name]: e.target.value
-    })
+  // const handleInputChange = (e) => {
+  //   e.preventDefault();
+  //   setName({
+  //     [e.target.name]: e.target.value
+  //   })
 
-  }
+  // }
 
   // saves setlist to db
   const saveSetlist = (data) => {
     let name = data.name
     let gigtype = data.gigtype
-    let songs = addedSongs
+    let songs = data.songs
 
     API.addSetlist({
       name: name,
       gigtype: gigtype,
       songs: songs
 
-    })
+    }).then(console.log("setlist added"))
       .catch(err => console.log(err))
   }
   //gets all songs from db
@@ -119,12 +127,12 @@ function CreateSetlist() {
             <Form onSubmit={handleSubmit} className="form">
               <Form.Group controlId="form-setlist-name">
                 <Form.Label>Setlist Name</Form.Label>
-                <Form.Control className="setlist-input" type="text" placeholder="Enter List Name" name="name" onChange={handleInputChange} />
+                <Form.Control className="setlist-input" type="text" value={name} placeholder="Enter List Name" name="name" onChange={e => setName(e.target.value)} />
               </Form.Group>
 
               <Form.Group controlId="form-gig-type">
                 <Form.Label>Gig Type</Form.Label>
-                <Form.Control className="setlist-input" type="text" placeholder="Wedding" name="gigtype" onChange={handleInputChange} />
+                <Form.Control className="setlist-input" type="text" value={gigtype} placeholder="Wedding" name="gigtype" onChange={e => { setGigtype(e.target.value) }} />
               </Form.Group>
 
               <Form.Group>

@@ -23,7 +23,7 @@ module.exports = {
   //====================================================
   create: function (req, res) {
     const { username, email, password } = req.body;
-
+    console.log(req.body)
     //simple validation
     if (!username || !email || !password) {
       return res.status(400).json({ msg: "please complete all fields" });
@@ -66,11 +66,8 @@ module.exports = {
               })
           })
         })
-      })
+      }).catch(err => res.status(422).json(err));
   },
-  //==================================================== 
-  //user authentication=================================
-  //====================================================
 
 
   update: function (req, res) {

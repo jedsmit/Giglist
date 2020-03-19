@@ -3,12 +3,13 @@ const bcrypt = require('bcryptjs');
 require('dotenv').config();
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth')
 
 
 module.exports = {
-    getOne: function (req, res) {
-        res.send("gotten")
-    },
+    // @route POST api/auth
+    // @desc Auth user
+    // @access Public
     findOne: function (req, res) {
         console.log("authController")
         const { username, password } = req.body;
@@ -27,7 +28,7 @@ module.exports = {
                 bcrypt.compare(password, user.password)
                     .then(isMatch => {
                         if (!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
-
+                        //sign token
                         jwt.sign(
                             { id: user.id },
                             config.get('jwtSecret'),
@@ -45,7 +46,15 @@ module.exports = {
                             })
                     })
             })
-    }
+    },
+    // @route GET api/auth/user
+    // @desc Get user data
+    // @access Private
+    findById: function (req, res) {
+        db.User.findById(req.user.id)
+            .select('-password')
+            .then(user => res.json(user));
+    },
 };
 
 

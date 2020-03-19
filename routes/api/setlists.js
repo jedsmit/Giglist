@@ -4,14 +4,14 @@ const auth = require('../../middleware/auth')
 
 // Matches with "/api/setlists"
 router.route("/")
-    .get(setlistsController.findAll)
-    .post(auth, setlistsController.create);
+    .get(auth, setlistsController.findAll)
+    .post(setlistsController.create);
 
 // Matches with "/api/setlists/:id"
 router
     .route("/:id")
-    .get(setlistsController.findById)
-    .put(setlistsController.update)
-    .delete(setlistsController.remove);
+    .get(auth, setlistsController.findById)
+    .put(auth, setlistsController.update)
+    .delete(auth, setlistsController.remove);
 
 module.exports = router;

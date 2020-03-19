@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import { UserContext } from "./contexts/userContext"
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import CreateSetlist from './pages/CreateSetlist';
@@ -14,9 +15,12 @@ import Footer from "./components/Footer"
 
 
 function App() {
+  const [user, setUser] = useState({});
+
   return (
     <>
       <Router>
+        {/* <UserContext.Provider> */}
         <div className="body">
 
 
@@ -44,6 +48,7 @@ function App() {
           </Switch>
           <Footer></Footer>
         </div>
+        {/* </UserContext.Provider> */}
       </Router>
     </>
   );
