@@ -4,8 +4,9 @@ export default {
   getSetlists: function () {
     return axios.get("/api/setlists");
   },
-  addSetlist: function () {
-    return axios.post("/api/setlists");
+  addSetlist: function (obj) {
+    console.log(obj)
+    return axios.post("/api/setlists", obj);
   },
   getSongs: function () {
     return axios.get("/api/songs");

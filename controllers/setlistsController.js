@@ -25,6 +25,7 @@ module.exports = {
     // @desc Create a new setlist
     // @access Private
     create: function (req, res) {
+        console.log("controller")
         db.Setlist
             .create(req.body)
             .then(dbModel => res.json(dbModel))

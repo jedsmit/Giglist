@@ -4,7 +4,7 @@ const auth = require('../../middleware/auth')
 
 // Matches with "/api/setlists"
 router.route("/")
-    .get(auth, setlistsController.findAll)
+    .get(setlistsController.findAll)
     .post(setlistsController.create);
 
 // Matches with "/api/setlists/:id"

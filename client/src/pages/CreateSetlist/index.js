@@ -26,46 +26,30 @@ function CreateSetlist() {
     console.log('it works');
   }, [])
 
-  // useEffect(() => {
-
-  // }, [])
-
 
   // save setlist to database when form is submitted
   const handleSubmit = (e) => {
+    console.log("is it the obj?")
     e.preventDefault();
-    const newSetlist = {
-      name: name,
-      gigtype: gigtype,
-      songs: addedSongs
-    };
-    console.log(newSetlist)
-    saveSetlist(newSetlist);
-  }
 
-  // handles text fields on form
-  // const handleInputChange = (e) => {
-  //   e.preventDefault();
-  //   setName({
-  //     [e.target.name]: e.target.value
-  //   })
+    //create setlist object
+    // const newSetlist = {
+    //   name: name,
+    //   gigtype: gigtype,
+    //   songs: addedSongs
+    // };
 
-  // }
-
-  // saves setlist to db
-  const saveSetlist = (data) => {
-    let name = data.name
-    let gigtype = data.gigtype
-    let songs = data.songs
-
-    API.addSetlist({
-      name: name,
-      gigtype: gigtype,
-      songs: songs
-
-    }).then(console.log("setlist added"))
+    //sends to backend
+    API.addSetlist(
+      {
+        name: name,
+        gigtype: gigtype,
+        songs: songs
+      }
+    ).then(res => console.log(res.body))
       .catch(err => console.log(err))
-  }
+  };
+
   //gets all songs from db
   const getSongs = () => {
     API.getSongs()
@@ -75,9 +59,7 @@ function CreateSetlist() {
         // console.log(songs)
         setSongs(songs)
       });
-  }
-
-  //clicks
+  };
 
   //adds selected song to the setlist 
   const handleAddButtonClick = (song) => {
@@ -124,7 +106,7 @@ function CreateSetlist() {
         <Col xs={1}></Col>
         <Col xs={5}>
           <Card border="warning">
-            <Form onSubmit={handleSubmit} className="form">
+            <Form onSubmit={e => handleSubmit} className="form">
               <Form.Group controlId="form-setlist-name">
                 <Form.Label>Setlist Name</Form.Label>
                 <Form.Control className="setlist-input" type="text" value={name} placeholder="Enter List Name" name="name" onChange={e => setName(e.target.value)} />
@@ -161,7 +143,7 @@ function CreateSetlist() {
 
               <Form.Group>
                 <Link to="/">
-                  <Button onClick={saveSetlist} variant="warning float-right" type="submit">
+                  <Button onClick={e => handleSubmit(e)} variant="warning float-right" type="submit">
                     Save List
                  </Button>
                 </Link>
