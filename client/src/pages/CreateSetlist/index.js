@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -12,7 +13,7 @@ import API from "../../utils/API"
 import "./createSetlist.css"
 import Navbar from "../../components/Navbar";
 
-function CreateSetlist() {
+function CreateSetlist(props) {
   //states
   const [songs, setSongs] = useState([]);
   const [name, setName] = useState("");
@@ -32,13 +33,6 @@ function CreateSetlist() {
     console.log("is it the obj?")
     e.preventDefault();
 
-    //create setlist object
-    // const newSetlist = {
-    //   name: name,
-    //   gigtype: gigtype,
-    //   songs: addedSongs
-    // };
-
     //sends to backend
     API.addSetlist(
       {
@@ -46,8 +40,12 @@ function CreateSetlist() {
         gigtype: gigtype,
         songs: songs
       }
-    ).then(res => console.log(res.body))
+    ).then(res => {
+      //redirects to the home page using withRouter hook
+      props.history.push("/")
+    })
       .catch(err => console.log(err))
+
   };
 
   //gets all songs from db
@@ -195,4 +193,4 @@ function CreateSetlist() {
   )
 };
 
-export default CreateSetlist;
+export default withRouter(CreateSetlist);

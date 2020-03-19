@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -35,7 +35,7 @@ function App() {
             <Route exact path={["/setlist"]}>
               <Setlist />
             </Route>
-            <Route exact path={["/create-setlist"]}>
+            <Route path={"/create-setlist"} component={CreateSetlist}>
               <CreateSetlist />
             </Route>
             <Route exact path={["/"]}>
