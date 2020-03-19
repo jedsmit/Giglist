@@ -11,6 +11,9 @@ export default {
   getSongs: function () {
     return axios.get("/api/songs");
   },
+  addSong: function (obj) {
+    return axios.post("/api/songs", obj);
+  },
   addUser: function (obj) {
     return axios.post("/api/users", obj);
   },

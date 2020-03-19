@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const songsController = require("../../controllers/songsController")
 const auth = require('../../middleware/auth')
-// Matches with "/api/setlists"
+// Matches with "/api/songs"
 router.route("/")
     .get(songsController.findAll)
-    .post(auth, songsController.create);
+    .post(songsController.create);
 
-// Matches with "/api/setlists/:id"
+// Matches with "/api/songs/:id"
 router
     .route("/:id")
     .get(auth, songsController.findById)
