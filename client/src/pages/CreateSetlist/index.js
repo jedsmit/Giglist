@@ -16,7 +16,7 @@ function CreateSetlist() {
   //states
   const [songs, setSongs] = useState([]);
   const [name, setName] = useState("");
-  const [gigType, setGigType] = useState("");
+  const [gigtype, setGigtype] = useState("");
   const [songState, setSongState] = useState("");
   const [addedSongs, setAddedSongs] = useState([]);
   const [modalShow, setModalShow] = React.useState(false);
@@ -43,11 +43,15 @@ function CreateSetlist() {
     setName({
       [e.target.name]: e.target.value
     })
+    setGigtype({
+      [e.target.name]: e.target.value
+    })
 
   }
 
   // saves setlist to db
   const saveSetlist = (data) => {
+    console.log(data);
     let name = data.name
     let gigtype = data.gigtype
     let songs = addedSongs
@@ -104,9 +108,9 @@ function CreateSetlist() {
 
       <Row className="create-setlist-page">
         <Col xs={1}></Col>
-        <Col xs={5}><div className="text-center"><h1 className="title">Create a new Setlist!</h1></div></Col>
+        <Col xs={5}><div className="text-center"><h1 className="title">Create a new Giglist!</h1></div></Col>
         <Col xs={5}>
-          <Card border="warning"><h3>Would Like to Add More Bad Ass Songs? </h3><Button variant="warning" onClick={() => setModalShow(true)}>
+          <Card border="warning"><h3>Would You Like to Add More Bad Ass Songs? </h3><Button variant="warning" onClick={() => setModalShow(true)}>
             Then Click This Bitch Right Here!!!!
       </Button>
 
@@ -120,7 +124,7 @@ function CreateSetlist() {
           <Card border="warning">
             <Form onSubmit={handleSubmit} className="form">
               <Form.Group controlId="form-setlist-name">
-                <Form.Label>Setlist Name</Form.Label>
+                <Form.Label>Giglist Name</Form.Label>
                 <Form.Control className="setlist-input" type="text" placeholder="Enter List Name" name="name" onChange={handleInputChange} />
               </Form.Group>
 

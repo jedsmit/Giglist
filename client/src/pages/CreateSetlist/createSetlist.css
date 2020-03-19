@@ -28,8 +28,9 @@ tr{
 
 th{
   text-decoration-line: underline;
+  font-size: 18px;
 }
 
 .setlist-input{
-  opacity: .4;
+  opacity: .7;
 }
