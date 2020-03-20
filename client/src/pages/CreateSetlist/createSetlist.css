@@ -28,8 +28,15 @@ tr{
 
 th{
   text-decoration-line: underline;
+  font-size: 18px;
 }
 
 .setlist-input{
-  opacity: .4;
+  opacity: .7;
+}
+
+#add-song{
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: gold;
 }

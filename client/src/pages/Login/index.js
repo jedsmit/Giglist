@@ -30,7 +30,7 @@ function Login() {
     <>
       <div className="center">
         <div className="card">
-          <h1>Setlist</h1>
+          <h1>Giglist</h1>
           <h3 className="login-logo">Login</h3>
           <form>
             <input
