@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./login.css";
-import API from "../../utils/API"
+import API from "../../utils/API";
 
 
 
@@ -16,15 +16,14 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username + " " + " " + password)
     API.loginUser(
       {
         username: username,
         password: password
       })
-      .then(res => console.log(res.body))
-      .catch(err => console.log(err)
-      );
+    // .then(res => console.log(res.body))
+    // .catch(err => console.log(err)
+    // );
   }
   return (
     <>

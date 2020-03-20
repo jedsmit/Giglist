@@ -14,10 +14,29 @@ import API from "../../utils/API";
 function Setlist() {
   const [blinkingText, setBlinkingText] = useState(false);
   const [songs, setSongs] = useState([]);
+  const [setlist, setSetlist] = useState([]);
+  const [id, setId] = useState();
+
+
+
+
 
   useEffect(() => {
-    getSongs();
+    API.getSetlist()
+      .then(res => {
+        let songs = res.songs;
+        const newSongs = songs.map((song) => {
+          return {
+            ...song,
+            blinkingText: false,
+            ms: calcBpmToMs(song.bpm)
+          }
+        })
+        // console.log(songs)
+        setSongs(newSongs);
+      }).catch(err => console.log(err))
   }, [])
+
 
   const handleBlinkClick = (selectedSong) => {
 
@@ -27,29 +46,28 @@ function Setlist() {
       } else {
         return song
       }
-    }
-    )
+    })
     setSongs(newSongs)
   }
 
 
-  const getSongs = () => {
-    API.getSongs()
-      .then(response => {
-        // console.log("API")
-        let songs = response.data;
-        const newSongs = songs.map((song) => {
-          return {
-            ...song,
-            blinkingText: false,
-            ms: calcBpmToMs(song.bpm)
-          }
-        }
-        )
-        // console.log(songs)
-        setSongs(newSongs)
-      });
-  }
+  // const getSongs = () => {
+  //   API.getSongs()
+  //     .then(response => {
+  //       // console.log("API")
+  //       let songs = response.data;
+  //       const newSongs = songs.map((song) => {
+  //         return {
+  //           ...song,
+  //           blinkingText: false,
+  //           ms: calcBpmToMs(song.bpm)
+  //         }
+  //       }
+  //       )
+  //       // console.log(songs)
+  //       setSongs(newSongs)
+  //     });
+  // }
 
   const calcBpmToMs = (bpm) => {
     const result = 60000 / bpm + "ms"
