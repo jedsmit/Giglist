@@ -31,10 +31,11 @@ function UserLists() {
             {
               setlists.map((setlist, index) => {
                 return <li key={index} className="list-group-item">
-                  <Setlist
+
+                  <Link to="/setlist/:{setlist.id}"><Setlist
                     name={setlist.name}
                     gigtype={setlist.gigtype}
-                  />
+                  /></Link>
                 </li>
               })
             }

@@ -14,7 +14,7 @@ function auth(req, res, next) {
         req.user = decoded;
         next();
     } catch (e) {
-        res.status(400).json({ msg: 'Invalid credentials' });
+        res.status(400).json;
     }
 };
 

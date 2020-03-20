@@ -61,7 +61,7 @@ module.exports = {
             return res.status(400).json({ msg: 'Please enter all fields' });
         }
         //check for existing user
-        db.User.findOne({ username })
+        db.User.findOne({ username, password })
             .then(user => {
                 if (!user) return res.status(400).json({ msg: 'user does not exist' });
             })
