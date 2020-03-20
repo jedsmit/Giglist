@@ -6,10 +6,6 @@ import API from '../../utils/API';
 export default class Stars extends Component {
   state = { value: 0 };
 
-  // handleStarChange = (value) => {
-  //   API.raiting(value)
-  //   this.setState({ value })
-  // }
 
   render() {
     return (

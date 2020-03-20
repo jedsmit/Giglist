@@ -5,10 +5,7 @@ export default {
     return axios.get("/api/setlists");
   },
   addSetlist: function (obj) {
-<<<<<<< HEAD
-=======
     console.log(obj)
->>>>>>> b4020ab9f5cefc0ee8ee5a6350eddaf30913421e
     return axios.post("/api/setlists", obj);
   },
   getSongs: function () {
@@ -21,12 +18,6 @@ export default {
     return axios.post("/api/users", obj);
   },
   getUsers: function () {
-<<<<<<< HEAD
-    return axios.get("api/users");
-  },
-  updateSetlist: function () {
-    return axios.put("api/setlists")
-=======
     return axios.get("/api/users");
   },
   authUser: function () {
@@ -37,6 +28,5 @@ export default {
   },
   loginUser: function (obj) {
     axios.post("api/auth/login", obj);
->>>>>>> b4020ab9f5cefc0ee8ee5a6350eddaf30913421e
   }
 };
