@@ -23,11 +23,11 @@ function ModalButton(props) {
   const [key, setKey] = useState("A");
   const [keySig, setKeySig] = useState("");
 
-  //concatinates keySig states
+  //concatenates keySig states
   useEffect(() => {
     setKeySig(key + sharpOrFlat + majMin)
     console.log(keySig)
-  })
+  }, [key, sharpOrFlat, majMin, keySig])
 
   //closes modal
   const handleClose = (e) => {

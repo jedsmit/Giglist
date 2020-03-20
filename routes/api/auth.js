@@ -10,4 +10,7 @@ router.route("/")
 router.route("/user")
     .get(auth, authController.findById);
 
+//Matches with "/api/auth/login"
+router.route("/login")
+    .post(authController.loginUser)
 module.exports = router;

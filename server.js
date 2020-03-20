@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 //Database connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/setlistdb", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://admin:admin1@ds015869.mlab.com:15869/heroku_vv7kfg8j", {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true

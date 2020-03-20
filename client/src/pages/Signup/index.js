@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import API from "../../utils/API"
 import "./signup.css";
+import AuthContext from "../../contexts/authContext/authContext"
 
 function Signup() {
+
+  const [registerUser, userAuth, errors] = useContext(AuthContext)
 
   const [newUser, setNewUser] = useState({
     username: "",
@@ -10,11 +13,12 @@ function Signup() {
     password: ""
   })
 
-  //save user to database when for is submitted
+  //save user to database when form is submitted
   const handleSubmit = (e) => {
     console.log(newUser)
     saveUser(newUser);
   }
+
   // handles text fields on form
   const handleChange = (e) => {
     e.preventDefault();

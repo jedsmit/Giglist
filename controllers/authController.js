@@ -7,6 +7,7 @@ const auth = require('../middleware/auth')
 
 
 module.exports = {
+
     // @route POST api/auth
     // @desc Auth user
     // @access Public
@@ -32,7 +33,8 @@ module.exports = {
                         jwt.sign(
                             { id: user.id },
                             config.get('jwtSecret'),
-                            { expiresIn: 3600 },
+                            // 4 hour expiration 
+                            { expiresIn: 14400 },
                             (err, token) => {
                                 if (err) throw err;
                                 res.json({
@@ -44,7 +46,47 @@ module.exports = {
                                     }
                                 })
                             })
+                        console.log("token signed")
                     })
+            })
+    },
+
+    //@route POST api/auth/login
+    //@desc login user
+    //@access Private
+    loginUser: function () {
+        const { username, password } = req.body;
+        // Simple validation
+        if (!username || !password) {
+            return res.status(400).json({ msg: 'Please enter all fields' });
+        }
+        //check for existing user
+        db.User.findOne({ username })
+            .then(user => {
+                if (!user) return res.status(400).json({ msg: 'user does not exist' });
+            })
+        //validate password
+        bcrypt.compare(password, user.password)
+            .then(isMatch => {
+                if (!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
+                //sign token
+                jwt.sign(
+                    { id: user.id },
+                    config.get('jwtSecret'),
+                    // 4 hour expiration 
+                    { expiresIn: 14400 },
+                    (err, token) => {
+                        if (err) throw err;
+                        res.json({
+                            token,
+                            user: {
+                                id: user.id,
+                                username: user.username,
+                                email: user.email
+                            }
+                        })
+                    })
+                console.log("token signed")
             })
     },
     // @route GET api/auth/user
@@ -53,7 +95,12 @@ module.exports = {
     findById: function (req, res) {
         db.User.findById(req.user.id)
             .select('-password')
-            .then(user => res.json(user));
+            .then(user => {
+                if (!user) throw err("User does not exist");
+                res.json(user);
+            }).catch(e => {
+                res.status(400).json({ msg: e.message })
+            });
     },
 };
 

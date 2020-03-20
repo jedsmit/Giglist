@@ -25,5 +25,8 @@ export default {
   },
   getUser: function () {
     axios.get("/api/auth/user");
+  },
+  loginUser: function (obj) {
+    axios.post("api/auth/login", obj);
   }
 };
