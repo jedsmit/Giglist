@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -12,14 +13,13 @@ import API from "../../utils/API"
 import "./createSetlist.css"
 import Navbar from "../../components/Navbar";
 
-function CreateSetlist() {
+function CreateSetlist(props) {
   //states
   const [songs, setSongs] = useState([]);
   const [name, setName] = useState("");
-  const [gigType, setGigType] = useState("");
-  const [songState, setSongState] = useState("");
+  const [gigtype, setGigtype] = useState("")
   const [addedSongs, setAddedSongs] = useState([]);
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
   //effects
 
   useEffect(() => {
@@ -27,39 +27,26 @@ function CreateSetlist() {
     console.log('it works');
   }, [])
 
-  // useEffect(() => {
-
-  // }, [])
-
 
   // save setlist to database when form is submitted
   const handleSubmit = (e) => {
-    saveSetlist(e.target);
-  }
-
-  // handles text fields on form
-  const handleInputChange = (e) => {
     e.preventDefault();
-    setName({
-      [e.target.name]: e.target.value
-    })
 
-  }
-
-  // saves setlist to db
-  const saveSetlist = (data) => {
-    let name = data.name
-    let gigtype = data.gigtype
-    let songs = addedSongs
-
-    API.addSetlist({
-      name: name,
-      gigtype: gigtype,
-      songs: songs
-
+    //sends to backend
+    API.addSetlist(
+      {
+        name: name,
+        gigtype: gigtype,
+        songs: songs
+      }
+    ).then(res => {
+      //redirects to the home page using withRouter hook
+      props.history.push("/")
     })
       .catch(err => console.log(err))
-  }
+
+  };
+
   //gets all songs from db
   const getSongs = () => {
     API.getSongs()
@@ -69,9 +56,7 @@ function CreateSetlist() {
         // console.log(songs)
         setSongs(songs)
       });
-  }
-
-  //clicks
+  };
 
   //adds selected song to the setlist 
   const handleAddButtonClick = (song) => {
@@ -118,15 +103,15 @@ function CreateSetlist() {
         <Col xs={1}></Col>
         <Col xs={5}>
           <Card border="warning">
-            <Form onSubmit={handleSubmit} className="form">
+            <Form onSubmit={e => handleSubmit} className="form">
               <Form.Group controlId="form-setlist-name">
                 <Form.Label>Setlist Name</Form.Label>
-                <Form.Control className="setlist-input" type="text" placeholder="Enter List Name" name="name" onChange={handleInputChange} />
+                <Form.Control className="setlist-input" type="text" value={name} placeholder="Enter List Name" name="name" onChange={e => setName(e.target.value)} />
               </Form.Group>
 
               <Form.Group controlId="form-gig-type">
                 <Form.Label>Gig Type</Form.Label>
-                <Form.Control className="setlist-input" type="text" placeholder="Wedding" name="gigtype" onChange={handleInputChange} />
+                <Form.Control className="setlist-input" type="text" value={gigtype} placeholder="Wedding" name="gigtype" onChange={e => { setGigtype(e.target.value) }} />
               </Form.Group>
 
               <Form.Group>
@@ -155,7 +140,7 @@ function CreateSetlist() {
 
               <Form.Group>
                 <Link to="/">
-                  <Button onClick={saveSetlist} variant="warning float-right" type="submit">
+                  <Button onClick={e => handleSubmit(e)} variant="warning float-right" type="submit">
                     Save List
                  </Button>
                 </Link>
@@ -207,4 +192,4 @@ function CreateSetlist() {
   )
 };
 
-export default CreateSetlist;
+export default withRouter(CreateSetlist);

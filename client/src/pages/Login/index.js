@@ -1,13 +1,33 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./login.css";
+import API from "../../utils/API"
 
-class Login extends Component {
-  constructor() {
-    super();
-    this.handleChange = this.handleChange.bind(this);
+
+
+
+
+
+function Login() {
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(username + " " + " " + password)
+    API.loginUser(
+      {
+        username: username,
+        password: password
+      })
+      .then(res => console.log(res.body))
+      .catch(err => console.log(err)
+      );
   }
-  render() {
-    return (
+  return (
+    <>
       <div className="center">
         <div className="card">
           <h1>Setlist</h1>
@@ -15,36 +35,35 @@ class Login extends Component {
           <form>
             <input
               className="form-item"
-              placeholder="Username goes here..."
+              placeholder="username"
               name="username"
               type="text"
-              onChange={this.handleChange}
+              onChange={e => {
+                setUsername(e.target.value)
+              }}
             />
             <input
               className="form-item"
-              placeholder="Password goes here..."
+              placeholder="password"
               name="password"
               type="password"
-              onChange={this.handleChange}
+              onChange={e => {
+                setPassword(e.target.value)
+              }}
             />
-            <input
+            <button
               className="form-submit"
               value="SUBMIT"
               type="submit"
-            />
+              onClick={handleSubmit}
+
+            >Login</button>
             <h6 className="text-center">Not a user? <a href="/signup"> Signup </a></h6>
           </form>
         </div>
       </div>
-    );
-  }
-
-  handleChange(e) {
-    this.setState(
-      {
-        [e.target.name]: e.target.value
-      }
-    )
-  }
+    </>
+  );
 }
+
 export default Login;

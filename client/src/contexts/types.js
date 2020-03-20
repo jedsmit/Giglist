@@ -1,0 +1,4 @@
+export const SUCCESS_REGISTER = 'SUCCESS_REGISTER'
+export const SUCCESS_LOGIN = 'SUCCESS_LOGIN'
+export const FAIL_LOGIN = 'FAIL_LOGIN'
+export const FAIL_REGISTER = "FAIL_REGISTER"
