@@ -29,12 +29,13 @@ function UserLists() {
           <ul className="list">
             {getSetlists()}
             {
-              setlists.map((setlist) => {
-                return <Setlist
-                  key={setlist._id}
-                  name={setlist.name}
-                  gigtype={setlist.gigtype}
-                />
+              setlists.map((setlist, index) => {
+                return <li key={index} className="list-group-item">
+                  <Setlist
+                    name={setlist.name}
+                    gigtype={setlist.gigtype}
+                  />
+                </li>
               })
             }
           </ul>

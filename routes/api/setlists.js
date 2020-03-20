@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const setlistsController = require("../../controllers/setlistsController")
+const auth = require('../../middleware/auth')
 
 // Matches with "/api/setlists"
 router.route("/")
@@ -9,8 +10,8 @@ router.route("/")
 // Matches with "/api/setlists/:id"
 router
     .route("/:id")
-    .get(setlistsController.findById)
-    .put(setlistsController.update)
-    .delete(setlistsController.remove);
+    .get(auth, setlistsController.findById)
+    .put(auth, setlistsController.update)
+    .delete(auth, setlistsController.remove);
 
 module.exports = router;

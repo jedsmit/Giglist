@@ -13,4 +13,8 @@ router
   .put(usersController.update)
   .delete(usersController.remove);
 
+//matches with "api/users/auth"
+// router
+//   .post(usersController.findOne);
+
 module.exports = router;

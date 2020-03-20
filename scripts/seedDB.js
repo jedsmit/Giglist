@@ -105,26 +105,24 @@ const songSeed = [
   }
 ];
 
-const userSeed = [
-  {
-    name: "Tim Gangl",
-    email: "tim.gangl30@gmail.com",
-    username: "timgangl",
-    password: "root"
-  },
-  {
-    name: "Jed Smit",
-    email: "jedsmit1@gmail.com",
-    username: "jedsmit",
-    password: "password"
-  }
-];
+// const userSeed = [
+//   {
+//     username: "timgangl",
+//     email: "tim.gangl30@gmail.com",
+//     password: "123456"
+//   },
+//   {
+//     username: "jedsmit",
+//     email: "jedsmit1@gmail.com",
+//     password: "123456"
+//   }
+// ];
 
 db.Setlist.remove({})
 
   .then(() => db.Setlist.collection.insertMany(setlistSeed))
   .then(() => db.Song.collection.insertMany(songSeed))
-  .then(() => db.User.collection.insertMany(userSeed))
+  // .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
