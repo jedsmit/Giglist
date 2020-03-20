@@ -21,9 +21,9 @@ function Login() {
         username: username,
         password: password
       })
-      // .then(res => console.log(res.body))
-      .catch(err => console.log(err)
-      );
+    // .then(res => console.log(res.body))
+    // .catch(err => console.log(err)
+    // );
   }
   return (
     <>

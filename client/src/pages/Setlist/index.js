@@ -11,10 +11,12 @@ import UserList from "../../components/UserLists";
 import API from "../../utils/API";
 
 
-function Setlist(props) {
+function Setlist() {
   const [blinkingText, setBlinkingText] = useState(false);
   const [songs, setSongs] = useState([]);
   const [setlist, setSetlist] = useState([]);
+  const [id, setId] = useState();
+
 
 
 
