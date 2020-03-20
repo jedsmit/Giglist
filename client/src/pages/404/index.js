@@ -13,7 +13,7 @@ function NoMatch() {
       <Container className="background">
         <Row>
           <Col>
-            <Jumbotron className="home-list no-match" boarder="warning">
+            <Jumbotron border="warning" className="no-match">
               <h1 className="text-center">404 Stage Not Found!!!</h1>
             </Jumbotron>
           </Col>

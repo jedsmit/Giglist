@@ -2,6 +2,10 @@ h3{
   color: black;
 }
 
+h4{
+  color: gold!important;
+}
+
 h5{
   color: black;
   padding: 4px;
