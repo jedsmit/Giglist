@@ -8,7 +8,7 @@ function Title() {
     <>
       <Row>
         <Col></Col>
-        <div><strong><h1>Welcome to Setlist!</h1></strong></div>
+        <div><strong><h1>Welcome to Giglist!</h1></strong></div>
         <Col></Col>
       </Row>
       <br>
@@ -16,7 +16,7 @@ function Title() {
       <br>
       </br>
       <Row>
-        <Col><h3 className="name">Insert Name Here</h3></Col>
+        <Col><h3 id="name" className="name">Insert Name Here</h3></Col>
       </Row>
     </>
   )
