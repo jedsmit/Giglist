@@ -8,8 +8,9 @@ export default {
     console.log(obj)
     return axios.post("/api/setlists", obj);
   },
-  getSetlist: function () {
-    return axios.get("/api/setlists/:id");
+  getSetlist: function (id) {
+    console.log("API getting" + id)
+    return axios.get("/api/setlists/" + id);
   },
   getSongs: function () {
     return axios.get("/api/songs");

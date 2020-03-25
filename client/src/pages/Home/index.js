@@ -19,7 +19,6 @@ function Home() {
         </Col>
         <Col xs={5}>
           <UserLists />
-
         </Col>
       </Row>
     </>

@@ -122,12 +122,7 @@ function ModalButton(props) {
                     <option>&#9837;</option>
                   </Form.Control>
                 </Form.Group>
-                {/* <Form.Label className="radio"> &#9839;<InputGroup.Radio name="radio" value="sharp" aria-label="Radio button for following text input" />
-                </Form.Label>
 
-
-                <Form.Label className="radio">
-                  &#9837;<InputGroup.Radio name="radio" value="flat" aria-label="Radio button for following text input" /></Form.Label> */}
               </Form.Group>
               </Col>
 

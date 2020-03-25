@@ -13,11 +13,12 @@ module.exports = {
 
   },
   // @route GET api/setlists/:id
-  // @desc Get one setlist
+  // @desc Get one setlists
   // @access Private
   findById: function (req, res) {
+    console.log("find by id" + req.body)
     db.Setlist
-      .findById(req.params)
+      .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -25,7 +26,7 @@ module.exports = {
   // @desc Create a new setlist
   // @access Private
   create: function (req, res) {
-    console.log("controller")
+    console.log("post controller" + req.body)
     db.Setlist
       .create(req.body)
       .then(dbModel => res.json(dbModel))
