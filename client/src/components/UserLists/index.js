@@ -10,20 +10,32 @@ import { SetlistContext } from "../../contexts/setlistContext/SetlistContext"
 
 function UserLists() {
   const [setlistId, setSetlistId] = useContext(SetlistContext);
+  const [setlistSongs, setSetlistSongs] = useContext(SetlistContext);
   const [setlists, setSetlists] = useState([{}]);
   // const [id, setId] = useState("");
-
-
-  function updateSetlistId(id) {
-    console.log(id);
-    setSetlistId(id)
-    console.log("usercomponent: " + setlistId)
-  }
 
 
   useEffect(() => {
     getSetlists();
   }, [])
+
+  function updateSetlistId(id) {
+    console.log(id);
+    setSetlistId(id)
+    // updateSetlistSongs(id)
+    console.log("usercomponent: " + setlistId)
+  }
+
+  // function updateSetlistSongs(id) {
+  //   API.getSetlist(id)
+  //     .then(res => {
+  //       setSetlistSongs(res.data.songs)
+  //     })
+  //     .catch(err => console.log(err))
+  // }
+
+
+
 
   function getSetlists() {
     API.getSetlists()
@@ -59,7 +71,10 @@ function UserLists() {
                     gigtype={setlist.gigtype}
                     id={setlist._id}
                     to={"/setlistPage"}
-                    onClick={updateSetlistId(setlist._id)}
+                    onClick={e => {
+                      e.stopPropagation();
+                      updateSetlistId(setlist._id)
+                    }}
                   />
 
                 </li>

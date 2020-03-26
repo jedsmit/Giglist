@@ -4,18 +4,13 @@ import { set } from "mongoose";
 export const SetlistContext = createContext();
 
 export const SetlistProvider = (props) => {
-    // const [setlist, setSetlist] = useState([
-    //     {
-    //         id: null,
-    //         gigtype: null,
-    //         songs: []
-    //     }
-    // ])
-    const [setlistId, setSetlistId] = useState("")
+
+    const [setlistId, setSetlistId] = useState("");
+    const [setlistSongs, setSetlistSongs] = useState([]);
 
     return (
         <SetlistContext.Provider
-            value={[setlistId, setSetlistId]}
+            value={[setlistId, setSetlistId], [setlistSongs, setSetlistSongs]}
         >
             {props.children}
         </SetlistContext.Provider>

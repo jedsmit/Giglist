@@ -31,13 +31,12 @@ function CreateSetlist(props) {
   // save setlist to database when form is submitted
   const handleSubmit = (e) => {
     e.preventDefault();
-
     //sends to backend
     API.addSetlist(
       {
         name: name,
         gigtype: gigtype,
-        songs: songs
+        songs: addedSongs
       }
     ).then(res => {
       //redirects to the home page using withRouter hook
@@ -91,8 +90,8 @@ function CreateSetlist(props) {
         <Col xs={1}></Col>
         <Col xs={5}><div className="text-center"><h1 className="title">Create a new Giglist!</h1></div></Col>
         <Col xs={5}>
-          <Card border="warning"><h3 id="add-song">Would You Like to Add More Bad Ass Songs? </h3><Button variant="warning" onClick={() => setModalShow(true)}>
-            Then Click This Bitch Right Here!!!!
+          <Card border="warning"><h3 id="add-song">Would You Like to Add More Songs? </h3><Button variant="warning" onClick={() => setModalShow(true)}>
+            Then Click Right Here!!!!
       </Button>
 
             <ModalButton

@@ -15,12 +15,14 @@ module.exports = {
   // @route GET api/setlists/:id
   // @desc Get one setlists
   // @access Private
-  findById: function (req, res) {
-    console.log("find by id" + req.body)
-    db.Setlist
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  findById: async function (req, res) {
+    console.log("find by id" + req.params.id)
+    await db.Setlist
+      .findById(req.params.id).populate('songs')
+      .then(dbModel => {
+        console.log(dbModel)
+        res.json(dbModel)
+      })
   },
   // @route POST api/setlists
   // @desc Create a new setlist

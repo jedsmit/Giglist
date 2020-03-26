@@ -7,6 +7,18 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    //@route GET api/songs/list/:arr
+    //@desc Return songs by id
+    //@access Private
+    findMany: function (req, res) {
+        db.Song
+            .find(req.query)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    //@route GET api/songs/:id
+    //@desc Return a song by id
+    //@access Private
     findById: function (req, res) {
         db.Song
             .findById(req.params.id)
