@@ -4,7 +4,7 @@
   "description": "",
   "engines": {
     "node": "12.13.x"
-  }
+  },
   "main": "server.js",
   "dependencies": {
     "@material-ui/core": "^4.9.5",
