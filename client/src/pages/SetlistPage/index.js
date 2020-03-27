@@ -20,7 +20,7 @@ function SetlistPage(props) {
   const [title, setTitle] = useState("")
   const [name, setName] = useState("");
   const [keySig, setKeySig] = useState("");
-  const [songsState, setSongsState] = useState(false);
+
 
 
 
@@ -30,27 +30,6 @@ function SetlistPage(props) {
     console.log("setlistsongs: " + setlistSongs)
   }, [])
 
-  // useEffect(() => {
-  //   if (songsState) {
-  //     console.log(songsState)
-  //     songsState(false)
-  //   }
-  // }, [songsState])
-
-  // useEffect(() => {
-  //   renderSongs()
-  //   console.log("rendersongs: " + songs)
-  //   console.log("renderSetlistsongs: " + setlistSongs)
-  // }, [])
-
-  // function getManySongs(arr) {
-  //   API.getManySongs([arr])
-  //     .then(res => {
-  //       console.log(res.data)
-  //       setSongs(res.data)
-  //     }).catch(err => console.log(err))
-  // }
-
   function getSetlist(id) {
     console.log("setlistpage: " + id)
     API.getSetlist(id)
@@ -58,25 +37,19 @@ function SetlistPage(props) {
         console.log("songs gotten: " + res.data)
         setSongs(res.data.songs)
         setName(res.data.name)
+        renderSongs(res.data.songs)
       }).catch(err => console.log(err))
   }
 
-  function renderSongs() {
+  function renderSongs(songs) {
     const newSongs = songs.map(song => {
-      // API.getSong(song._id)
-      //   .then(res => {
-      //     console.log("then")
-      //     setTitle(res.data.title);
-      //     setKeySig(res.data.keySig);
-      //   }).catch(err => console.log(err))
       return {
         ...song,
-        title,
-        keySig,
         blinkingText: false,
         ms: calcBpmToMs(song.bpm)
       }
     })
+    setSongs(newSongs)
   }
 
   const handleBlinkClick = (selectedSong) => {
@@ -101,8 +74,6 @@ function SetlistPage(props) {
   }
 
   return (
-
-
 
     <>
       <Navbar />
