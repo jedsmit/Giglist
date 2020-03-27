@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/col";
+import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import Badge from "react-bootstrap/Badge";
