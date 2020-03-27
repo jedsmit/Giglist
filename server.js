@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://admin:admin1@ds015869.mla
     useCreateIndex: true,
     useUnifiedTopology: true
 })
-    .then(() => console.log("Database connected, you fuck."))
+    .then(() => console.log("Database connected, nerd."))
     .catch(err => console.log(err));
 
 //Start server

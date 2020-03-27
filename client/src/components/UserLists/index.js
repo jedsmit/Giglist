@@ -1,21 +1,56 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import "./userLists.css"
 import { Link } from "react-router-dom";
-import Setlist from "../Setlist";
+import SetlistComponent from "../SetlistComponent";
 import API from "../../utils/API"
+import { SetlistContext } from "../../contexts/setlistContext/SetlistContext"
 
 
 
 function UserLists() {
+  const [setlistId, setSetlistId] = useContext(SetlistContext);
+  const [setlistSongs, setSetlistSongs] = useContext(SetlistContext);
+  const [setlists, setSetlists] = useState([{}]);
+  // const [id, setId] = useState("");
 
-  const [setlists, setSetlists] = useState([{}])
+
+  useEffect(() => {
+    getSetlists();
+  }, [])
+
+  function updateSetlistId(id) {
+    console.log(id);
+    setSetlistId(id)
+    // updateSetlistSongs(id)
+    console.log("usercomponent: " + setlistId)
+  }
+
+  // function updateSetlistSongs(id) {
+  //   API.getSetlist(id)
+  //     .then(res => {
+  //       setSetlistSongs(res.data.songs)
+  //     })
+  //     .catch(err => console.log(err))
+  // }
+
+
+
 
   function getSetlists() {
     API.getSetlists()
       .then(response => setSetlists(response.data))
+      .catch(err => console.log(err))
   };
 
+  // function getOneSetlist(id) {
+  //   API.getSetlist(id)
+  //     .then(res => {
+  //       console.log(res.songs)
+  //       setChosenList(res.songs)
+
+  //     }).catch(err => console.log(err))
+  // }
 
   return (
     <>
@@ -27,15 +62,21 @@ function UserLists() {
 
           {/* renders users list of setlists */}
           <ul className="list">
-            {getSetlists()}
             {
               setlists.map((setlist, index) => {
                 return <li key={index} className="list-group-item">
 
-                  <Link to="/setlist"><Setlist
+                  <SetlistComponent
                     name={setlist.name}
                     gigtype={setlist.gigtype}
-                  /></Link>
+                    id={setlist._id}
+                    to={"/setlistPage"}
+                    onClick={e => {
+                      e.stopPropagation();
+                      updateSetlistId(setlist._id)
+                    }}
+                  />
+
                 </li>
               })
             }

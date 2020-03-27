@@ -7,12 +7,14 @@ import { AuthContext } from "./contexts/authContext/authContext"
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import CreateSetlist from './pages/CreateSetlist';
-import Setlist from './pages/Setlist';
+import SetlistPage from './pages/SetlistPage';
 import NoMatch from "./pages/404";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Footer from "./components/Footer"
 import AuthState from "./contexts/authContext/AuthState"
+import { SetlistProvider } from "./contexts/setlistContext/SetlistContext"
+
 
 
 function App() {
@@ -22,33 +24,36 @@ function App() {
     <>
       <Router>
         <AuthContext.Provider>
-          <div className="body">
+          <SetlistProvider>
 
+            <div className="body">
 
-            <Switch>
+              <Switch>
 
-              <Route exact path={["/signup"]}>
-                <Signup />
-              </Route>
-              <Route exact path={["/login"]}>
-                <Login />
-              </Route>
-              <Route exact path={["/setlist"]}>
-                <Setlist />
-              </Route>
-              <Route path={"/create-setlist"} component={CreateSetlist}>
-                <CreateSetlist />
-              </Route>
-              <Route exact path={["/"]}>
-                <Home />
-              </Route>
-              <Route>
-                <NoMatch />
-              </Route>
+                <Route exact path={["/signup"]}>
+                  <Signup />
+                </Route>
+                <Route exact path={["/login"]}>
+                  <Login />
+                </Route>
+                <Route path={["/setlistPage"]} component={SetlistPage}>
+                  <SetlistPage />
+                </Route>
+                <Route path={"/create-setlist"} component={CreateSetlist}>
+                  <CreateSetlist />
+                </Route>
+                <Route exact path={["/"]}>
+                  <Home />
+                </Route>
+                <Route>
+                  <NoMatch />
+                </Route>
 
-            </Switch>
-            <Footer></Footer>
-          </div>
+              </Switch>
+
+              <Footer></Footer>
+            </div>
+          </SetlistProvider>
         </AuthContext.Provider>
       </Router>
     </>

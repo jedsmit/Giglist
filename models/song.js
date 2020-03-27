@@ -8,7 +8,11 @@ const songSchema = new Schema({
   bpm: { type: Number },
   keySig: { type: String },
   sharpFlat: { type: String },
-  majMin: { type: String }
+  majMin: { type: String },
+  setlists: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Setlist"
+  }
 });
 
 const Song = mongoose.model("Song", songSchema);

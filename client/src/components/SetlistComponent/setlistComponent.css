@@ -3,3 +3,12 @@
   color: white;
 
 }
+
+a {
+  color: gold;
+  }
+
+a:visited { 
+ color: gold;
+  }
+  

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/col";
 import Card from "react-bootstrap/Card";
@@ -7,36 +7,50 @@ import Badge from "react-bootstrap/Badge";
 import Stars from "../../components/Rating";
 import Navbar from "../../components/Navbar";
 import "./setlist.css";
-import UserList from "../../components/UserLists";
+// import UserList from "../../components/UserLists";
 import API from "../../utils/API";
+import { SetlistContext } from "../../contexts/setlistContext/SetlistContext";
 
 
-function Setlist() {
+function SetlistPage(props) {
+  const [setlistId, setSetlistId] = useContext(SetlistContext);
+  const [setlistSongs, setSetlistSongs] = useContext(SetlistContext);
   const [blinkingText, setBlinkingText] = useState(false);
   const [songs, setSongs] = useState([]);
-  const [setlist, setSetlist] = useState([]);
-  const [id, setId] = useState();
-
+  const [title, setTitle] = useState("")
+  const [name, setName] = useState("");
+  const [keySig, setKeySig] = useState("");
 
 
 
 
   useEffect(() => {
-    API.getSetlist()
-      .then(res => {
-        let songs = res.songs;
-        const newSongs = songs.map((song) => {
-          return {
-            ...song,
-            blinkingText: false,
-            ms: calcBpmToMs(song.bpm)
-          }
-        })
-        // console.log(songs)
-        setSongs(newSongs);
-      }).catch(err => console.log(err))
+    getSetlist(setlistId)
+    console.log("songs: " + songs)
+    console.log("setlistsongs: " + setlistSongs)
   }, [])
 
+  function getSetlist(id) {
+    console.log("setlistpage: " + id)
+    API.getSetlist(id)
+      .then(res => {
+        console.log("songs gotten: " + res.data)
+        setSongs(res.data.songs)
+        setName(res.data.name)
+        renderSongs(res.data.songs)
+      }).catch(err => console.log(err))
+  }
+
+  function renderSongs(songs) {
+    const newSongs = songs.map(song => {
+      return {
+        ...song,
+        blinkingText: false,
+        ms: calcBpmToMs(song.bpm)
+      }
+    })
+    setSongs(newSongs)
+  }
 
   const handleBlinkClick = (selectedSong) => {
 
@@ -51,23 +65,7 @@ function Setlist() {
   }
 
 
-  // const getSongs = () => {
-  //   API.getSongs()
-  //     .then(response => {
-  //       // console.log("API")
-  //       let songs = response.data;
-  //       const newSongs = songs.map((song) => {
-  //         return {
-  //           ...song,
-  //           blinkingText: false,
-  //           ms: calcBpmToMs(song.bpm)
-  //         }
-  //       }
-  //       )
-  //       // console.log(songs)
-  //       setSongs(newSongs)
-  //     });
-  // }
+
 
   const calcBpmToMs = (bpm) => {
     const result = 60000 / bpm + "ms"
@@ -76,14 +74,16 @@ function Setlist() {
   }
 
   return (
+
     <>
       <Navbar />
-      <div ><h1 className="setlist-header">Your Customized Setlist w/clickable BPM</h1></div>
+
+      <div><h1 className="setlist-header">Your Customized Setlist w/clickable BPM</h1></div>
       <Row>
         <Col xs={3}></Col>
         <Col xs={6}>
           <Card border="warning" className="setlist">
-            <Card.Header><Row><Col><h4>Setlist Name</h4></Col><Stars className="justify-content-end"></Stars></Row></Card.Header>
+            <Card.Header><Row><Col><h4>{name}</h4></Col><Stars className="justify-content-end"></Stars></Row></Card.Header>
             <Card.Body>
               <Row>
                 <Table >
@@ -98,19 +98,22 @@ function Setlist() {
                   <tbody>
 
                     {
+
+
                       songs.map((song, i) => (
                         <tr key={song._id}>
                           <td>{i + 1}</td>
                           <td>{song.title}</td>
                           <td><Badge className="key-badge" pill variant="warning" ><h6>{song.keySig}</h6></Badge></td>
                           <td><Badge style={song.blinkingText ? {
-
                             animationName: "blinkingText",
                             animationDuration: song.ms,
                             animationIterationCount: "infinite"
                           } : {}} pill variant="warning" key={Badge} onClick={() => handleBlinkClick(song)}><h6>{song.bpm}</h6></Badge></td>
                         </tr>
                       ))
+
+
                     }
                   </tbody>
                 </Table>
@@ -122,6 +125,7 @@ function Setlist() {
 
     </>
   )
+
 }
 
-export default Setlist;
+export default SetlistPage;

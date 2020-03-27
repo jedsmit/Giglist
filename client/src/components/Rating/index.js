@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BeautyStars from 'beauty-stars';
-import API from '../../utils/API';
+// import API from '../../utils/API';
 
 
 export default class Stars extends Component {

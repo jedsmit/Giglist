@@ -10,7 +10,7 @@ router.route("/")
 // Matches with "/api/setlists/:id"
 router
     .route("/:id")
-    .get(auth, setlistsController.findById)
+    .get(setlistsController.findById)
     .put(auth, setlistsController.update)
     .delete(auth, setlistsController.remove);
 
